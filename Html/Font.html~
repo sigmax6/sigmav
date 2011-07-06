@@ -1,0 +1,13 @@
+<html>
+<head>
+<Meta http-equiv="Content-type" Content="text/html"; charset="utf8">
+<title>字体设置</title>
+</head>
+<body>
+<h1>
+<font face="微软雅黑" color="red" size=7>
+字体设置：微软雅黑
+</font>
+</h1>
+</body>
+</html>

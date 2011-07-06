@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=An Example Program
+Exec=template
+Icon=sound-off
+Type=Application
+Name=ExeName

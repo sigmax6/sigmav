@@ -1,0 +1,17 @@
+#!/bin/sh
+
+/opt/FriendlyARM/mini2440/x86-qtopia/qtopia-2.2.0-FriendlyARM/qt2/bin/qvfb -width 340 -height 380 -depth 16 &
+#export CAMERA_DEVICE=/dev/video1
+#qtopia-2.2.0-FrinedlyARM/qt2/bin/qvfb -width 640 -height 480 -depth 16 &
+cd /opt/FriendlyARM/mini2440/x86-qtopia/qtopia-2.2.0-FriendlyARM/qtopia/image
+mkdir root 2>/dev/null || true
+export HOME=$PWD/root
+cd opt/Qtopia
+export PATH=$PWD/bin:$PATH
+export LD_LIBRARY_PATH=$PWD/lib:$LD_LIBARAY_PATH
+export QTDIR=$PWD
+export QPEDIR=$PWD
+export KDEDIR=$PWD/../kde
+
+sleep 3
+/opt/FriendlyARM/mini2440/x86-qtopia/qtopia-2.2.0-FriendlyARM/qtopia/bin/army -qws

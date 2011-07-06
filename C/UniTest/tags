@@ -1,0 +1,120 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BUF_LEN	inotifyTest.c	17;"	d	file:
+CONTENT_LEN	inotifyTest.c	15;"	d	file:
+C_SRCS	UniETest/Debug/sources.mk	/^C_SRCS := $/;"	m
+C_SRCS	UniTest/Debug/sources.mk	/^C_SRCS := $/;"	m
+DEPS	UniETest/Debug/objects.mk	/^DEPS := \\$/;"	m
+DEPS	UniTest/Debug/objects.mk	/^DEPS := \\$/;"	m
+Date	UniETest/Test.c	/^struct Date$/;"	s	file:
+Date::day	UniETest/Test.c	/^	int day;$/;"	m	struct:Date	file:	access:public
+Date::month	UniETest/Test.c	/^	int month;$/;"	m	struct:Date	file:	access:public
+Date::year	UniETest/Test.c	/^	int year;$/;"	m	struct:Date	file:	access:public
+DelSpace	p78DelSpace.c	/^int DelSpace(char * str)$/;"	f	signature:(char * str)
+EVENT_SIZE	inotifyTest.c	16;"	d	file:
+FILENAME_LEN	inotifyTest.c	14;"	d	file:
+JOSEPHUS_H	Josephus.h	2;"	d
+Josephus	Josephus.c	/^int Josephus(int n,int k,int i)$/;"	f	signature:(int n,int k,int i)
+Josephus	Josephus.h	/^int Josephus(int ,int ,int);$/;"	p	signature:(int ,int ,int)
+LIBS	UniETest/Debug/objects.mk	/^LIBS := $/;"	m
+LIBS	UniTest/Debug/objects.mk	/^LIBS := $/;"	m
+MAX	99print.c	2;"	d	file:
+MAX	p78DelSpace.c	4;"	d	file:
+MyItoa	MyItoa.c	/^int MyItoa(char s[])$/;"	f	signature:(char s[])
+MyMemcpy	UniCTest/MyMemcpy.c	/^void * MyMemcpy(void * dest,const void * src,int n)$/;"	f	signature:(void * dest,const void * src,int n)
+MyMemcpy2	UniCTest/MyMemcpy.c	/^void * MyMemcpy2(void * dest,const void * src,int size)$/;"	f	signature:(void * dest,const void * src,int size)
+NumC2	ct9_1.c	/^int NumC2(int n,int k )$/;"	f	signature:(int n,int k )
+NumConvert	ct9_1.c	/^int NumConvert(int n, int k) {$/;"	f	signature:(int n, int k)
+OBJS	UniETest/Debug/objects.mk	/^OBJS := \\$/;"	m
+OBJS	UniTest/Debug/objects.mk	/^OBJS := \\$/;"	m
+RM	UniETest/Debug/makefile	/^RM := rm -rf$/;"	m
+RM	UniTest/Debug/makefile	/^RM := rm -rf$/;"	m
+ROOT	UniETest/Debug/makefile	/^ROOT := ..$/;"	m
+ROOT	UniTest/Debug/makefile	/^ROOT := ..$/;"	m
+SUBDIRS	UniETest/Debug/sources.mk	/^SUBDIRS := \\$/;"	m
+SUBDIRS	UniTest/Debug/sources.mk	/^SUBDIRS := \\$/;"	m
+S_SRCS	UniETest/Debug/sources.mk	/^S_SRCS := $/;"	m
+S_SRCS	UniTest/Debug/sources.mk	/^S_SRCS := $/;"	m
+S_UPPER_SRCS	UniETest/Debug/sources.mk	/^S_UPPER_SRCS := $/;"	m
+S_UPPER_SRCS	UniTest/Debug/sources.mk	/^S_UPPER_SRCS := $/;"	m
+Student	UniETest/Test.c	/^struct Student$/;"	s	file:
+Student::stuId	UniETest/Test.c	/^	int stuId;$/;"	m	struct:Student	file:	access:public
+Student::stuName	UniETest/Test.c	/^	char stuName[10];$/;"	m	struct:Student	file:	access:public
+StudentEx	UniETest/Test.c	/^struct StudentEx$/;"	s	file:
+StudentEx::stuBirth	UniETest/Test.c	/^	struct Date stuBirth;$/;"	m	struct:StudentEx	typeref:struct:StudentEx::Date	file:	access:public
+StudentEx::stuId	UniETest/Test.c	/^	int stuId;$/;"	m	struct:StudentEx	file:	access:public
+StudentEx::stuName	UniETest/Test.c	/^	char stuName[10];$/;"	m	struct:StudentEx	file:	access:public
+USER_OBJS	UniETest/Debug/objects.mk	/^USER_OBJS := $/;"	m
+USER_OBJS	UniTest/Debug/objects.mk	/^USER_OBJS := $/;"	m
+WINDOWSIZE	netQsortTest.c	5;"	d	file:
+csizeStr	setTerm.c	/^char * csizeStr[4]=$/;"	v
+csizeVal	setTerm.c	/^int csizeVal[4]=$/;"	v
+day	UniETest/Test.c	/^	int day;$/;"	m	struct:Date	file:	access:public
+diamond	diamond.c	/^void diamond(int d,char c)$/;"	f	signature:(int d,char c)
+end	struct.c	/^    struct innerstruct end;$/;"	m	struct:segment	typeref:struct:segment::innerstruct	file:	access:public
+i	structPtr.c	/^    int i;$/;"	m	struct:test	file:	access:public
+innerstruct	struct.c	/^struct innerstruct{$/;"	s	file:
+innerstruct::name	struct.c	/^    char * name;$/;"	m	struct:innerstruct	file:	access:public
+innerstruct::value	struct.c	/^    int value;$/;"	m	struct:innerstruct	file:	access:public
+j	structPtr.c	/^    int j;$/;"	m	struct:test	file:	access:public
+main	99print.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	Josephus.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	MyItoa.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	PointerArrayTest.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	UniCTest/MyMemcpy.c	/^int main(int argc , const char *argv[])$/;"	f	signature:(int argc , const char *argv[])
+main	UniETest/Test.c	/^int main()$/;"	f
+main	UniTest/Test.c	/^int main()$/;"	f
+main	charPtrMin.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	ct9_1.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	diamond.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	inotifyTest.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	math1.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	netQsortTest.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	numseven.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	p20median.c	/^int main(int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	p24ling.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	p78DelSpace.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	slashWait.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	sparcTestData.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	struct.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	structPtr.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	test.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	test2n.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	testSetTerm.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+mdiv	p20median.c	/^int mdiv(int * number,int sptr,int lptr)$/;"	f	signature:(int * number,int sptr,int lptr)
+mfsort	netQsortTest.c	/^char mfsort (int * window , int size)$/;"	f	signature:(int * window , int size)
+mfsort_m	netQsortTest.c	/^char mfsort_m (int * window , int size)$/;"	f	signature:(int * window , int size)
+month	UniETest/Test.c	/^	int month;$/;"	m	struct:Date	file:	access:public
+mqsort	p20median.c	/^void mqsort(int * number,int sptr,int lptr,int mid )$/;"	f	signature:(int * number,int sptr,int lptr,int mid )
+myqsort	netQsortTest.c	/^void myqsort(int * window, int p , int r)$/;"	f	signature:(int * window, int p , int r)
+myqsort_m	netQsortTest.c	/^void myqsort_m(int * window, int p , int r ,int m)$/;"	f	signature:(int * window, int p , int r ,int m)
+name	struct.c	/^    char * name;$/;"	m	struct:innerstruct	file:	access:public
+oddEvenStr	setTerm.c	/^char * oddEvenStr[3]=$/;"	v
+qpart	netQsortTest.c	/^int qpart (int * window, int p,  int r)$/;"	f	signature:(int * window, int p, int r)
+qswap	netQsortTest.c	/^void qswap (int * a ,int * b)$/;"	f	signature:(int * a ,int * b)
+s	struct.c	/^struct segment s={{"start",1},{"end",0}};$/;"	v	typeref:struct:segment
+segment	struct.c	/^struct segment{$/;"	s	file:
+segment::end	struct.c	/^    struct innerstruct end;$/;"	m	struct:segment	typeref:struct:segment::innerstruct	file:	access:public
+segment::start	struct.c	/^    struct innerstruct start;$/;"	m	struct:segment	typeref:struct:segment::innerstruct	file:	access:public
+setTerm	setTerm.c	/^int setTerm(int fd,struct termios * save_term)$/;"	f	signature:(int fd,struct termios * save_term)
+setTerm	testSetTerm.c	/^int  setTerm(int fd,struct termios * save_term);$/;"	p	file:	signature:(int fd,struct termios * save_term)
+speedStr	setTerm.c	/^char * speedStr[15]=$/;"	v
+speedVal	setTerm.c	/^speed_t speedVal[15]=$/;"	v
+start	struct.c	/^    struct innerstruct start;$/;"	m	struct:segment	typeref:struct:segment::innerstruct	file:	access:public
+stopBitStr	setTerm.c	/^char * stopBitStr[2]=$/;"	v
+stuBirth	UniETest/Test.c	/^	struct Date stuBirth;$/;"	m	struct:StudentEx	typeref:struct:StudentEx::Date	file:	access:public
+stuId	UniETest/Test.c	/^	int stuId;$/;"	m	struct:Student	file:	access:public
+stuId	UniETest/Test.c	/^	int stuId;$/;"	m	struct:StudentEx	file:	access:public
+stuName	UniETest/Test.c	/^	char stuName[10];$/;"	m	struct:Student	file:	access:public
+stuName	UniETest/Test.c	/^	char stuName[10];$/;"	m	struct:StudentEx	file:	access:public
+swap	p20median.c	/^void swap(int * a,int * b)$/;"	f	signature:(int * a,int * b)
+test	structPtr.c	/^struct test$/;"	s	file:
+test::i	structPtr.c	/^    int i;$/;"	m	struct:test	file:	access:public
+test::j	structPtr.c	/^    int j;$/;"	m	struct:test	file:	access:public
+uname	structPtr.c	/^int uname (struct test * ptr)$/;"	f	signature:(struct test * ptr)
+value	struct.c	/^    int value;$/;"	m	struct:innerstruct	file:	access:public
+year	UniETest/Test.c	/^	int year;$/;"	m	struct:Date	file:	access:public

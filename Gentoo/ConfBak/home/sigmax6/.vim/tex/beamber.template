@@ -1,0 +1,153 @@
+\documentclass{beamer}
+
+% Copyright 2004      by Till Tantau  <tantau@users.sourceforge.net>.
+%       and 2005-2007 by Jorg Cassens <jorg.cassens@idi.ntnu.no>
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice.
+
+% Describing beamerthemeTrondheim version 2007/06/30
+
+% If you have more than three sections or more than three subsections
+% in at least one section, you might want to use the [compress] switch.
+% In this case, only the current (sub-) section is displayed in the
+% header and not the full overview.
+
+
+\mode<presentation>
+{
+%   \usetheme[blue,noshadow]{Trondheim}
+%   \usetheme[blue,minimal]{Trondheim}
+%  \usetheme[blue,compress,numbers,nonav]{Trondheim}
+   \usetheme[sand,compress,numbers,nonav,innovation]{Trondheim}
+  % Some examples for the different options for beamerTrondheim
+
+%   \usecolortheme{ntnuold}
+  % try this if you encounter problems with the new ntnublue theme
+
+  % \usefonttheme{professionalfonts}
+  % Use only if using a font matching the conditions (see beamer docs)
+
+  \usefonttheme[onlymath]{serif}
+  % \useoutertheme{infolines}
+  % or whatever
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+\usepackage{tikz}
+% you only need this when using TikZ graphics
+
+\usepackage{multimedia}
+% you probably want to comment this out if not using multimedia elements
+
+\usepackage{hyperref}
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[latin1]{inputenc}
+% or whatever
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{courier}
+% \usepackage{arev}
+% The non-standard packages arev and bera define fonts which look nicely for
+% projection, you might want to try them instead of Times/Helvetica/Courier.
+% Use the
+
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+%------------------------------------------------------------------------------------------------------
+\usepackage{xltxtra,fontspec,xunicode}    %这里使用xetex相应的宏包
+\usepackage{zhfont}                       %这里调用zhspacing
+\zhspacing
+%------------------------------------------------------------------------------------------------------
+\definecolor{MyDarkBlue}{rgb}{0,0,1}
+\definecolor{MyLightMagenta}{cmyk}{0.1,0.8,0,0.1}
+\setlength{\parindent}{2em}
+%------------------------------------------------------------------------------------------------------
+\setzhmainfont[BoldFont=LiHei Pro]{Microsoft YaHei}%这里设置中文粗体和普通字体
+%\setmainfont{TeX Gyre Pagella}           %这里设置英文衬线字体
+\setmainfont{CMU Serif}
+\setmonofont{Monaco}                     %英文等宽字体
+\setsansfont{Lucida Grande}               %英文无衬线字体
+    %-------------------------------------------------------------------------------------------------------
+\title % (optional, use only with long paper titles)
+{<{}>Your Title}
+
+% \subtitle
+% {Include Only If Paper Has a Subtitle}
+
+\author{<{}>Your Name}
+
+% Till Tantau\author{{1} \and
+% J\"{o}rg Cassens\inst{2}
+
+%\institute[CSU] % (optional, but mostly needed)
+%{Central South University}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+
+\date[] % (optional, should be abbreviation of conference name)
+{}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{Beamer}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+% \AtBeginSubsection[]
+% {
+%   \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[currentsection,currentsubsection]
+%   \end{frame}
+% }
+% Use this if you do want the table of contents to pop up at
+% the beginning of each subsection.
+
+%\pgfdeclareimage[height=2em,interpolate=true]{ntnulogotext}{foo}
+% If you want to include a different logo on the title page
+% only (e.g. a combined logo of different institutions), you
+% can use this command.
+
+\begin{document}
+\XeTeXlinebreaklocale "zh"  % 表示用中文的断行
+\XeTeXlinebreakskip = 0pt plus 1pt % 多一点调整的空间
+
+\maketitle
+% \compressedtitle
+% You can use \maketitle to create the titlepage,
+% or \compressedtitle to create a more compact titlepage
+% with the look of the other pages in compress style
+
+% \begin{frame}
+%   \titlepage
+% \end{frame}
+% Or you can call the titlepage command in a frame environment
+
+\begin{frame}<beamer>
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{<{}>}
+
+\begin{frame}\frametitle{<{}>}
+<{}>
+\end{frame}
+
+\end{document}

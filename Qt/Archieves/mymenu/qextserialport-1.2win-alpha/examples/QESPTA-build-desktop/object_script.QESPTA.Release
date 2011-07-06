@@ -1,0 +1,16 @@
+INPUT(
+./obj\main.o
+./obj\MainWindow.o
+./obj\MessageWindow.o
+./obj\QespTest.o
+./obj\win_qextserialport.o
+./obj\qextserialport.o
+./obj\qextserialenumerator.o
+./obj\qextserialbase.o
+./obj\moc_MainWindow.o
+./obj\moc_MessageWindow.o
+./obj\moc_QespTest.o
+./obj\moc_qextserialport.o
+./obj\moc_qextserialbase.o
+./obj\moc_win_qextserialport.o
+);

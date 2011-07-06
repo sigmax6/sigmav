@@ -1,0 +1,61 @@
+//Code by Li Feixiang 20100724 ver 1.0
+//Modified by Sigmax6 20100725 ver 1.1
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include <sqlca.h>
+
+#define MAX 200                  //The MAX number of rooms
+
+struct roominfo_struct
+{
+    char roomnumber[50];
+    char roomtype[50];
+    char roomprice[50];
+    char roomstate[50];
+}ris[MAX];
+
+EXEC SQL BEGIN DECLARE SECTION;
+    VARCHAR username[20];
+    VARCHAR password[20];
+    VARCHAR server[20];
+    int operate;
+    int count;
+    int roomid;
+    char roomnum[30];
+    int typeid;
+    char roomstate[30];
+    char roomtype[30];
+    char roomprice[30];
+EXEC SQL END DECLARE SECTION;
+
+int main()
+{
+
+	strcpy(username.arr,"scott");
+	username.len=strlen(username.arr);
+	strcpy(password.arr,"hotel000");
+	password.len=strlen(password.arr);
+    strcpy(server.arr,"hotelDB");
+    server.len=strlen(server.arr);
+    EXEC SQL CONNECT :username IDENTIFIED BY :password USING :server ;
+    if(sqlca.sqlcode==0)
+	printf("connect database successful \n");
+    EXEC SQL SELECT * INTO :ris FROM ROOMINFO;
+    printf("%d\n",sqlca.sqlerrd[2]);
+    for(count=0;count<sqlca.sqlerrd[2];count++)
+       printf("%.10s,%.10s,%.10s,%.10s\n",ris[count].roomnumber,ris[count].roomtype,ris[count].roomprice,ris[count].roomstate);
+   // EXEC SQL SELECT * INTO :rs FROM SCOTT.ROOM;
+   // for (count=0;count<2;count++)
+   //     printf("%d,%s,%d,%s",rs[count].roomid,rs[count].roomnum,rs[count].typeid,rs[count].state);
+    printf("Input room Number\n");
+    scanf("%s",roomnum);
+    EXEC SQL EXECUTE
+     BEGIN
+      SCOTT.PROCED_ROOM_INFO(:roomnum,:roomtype,:roomprice,:roomstate);
+     END;
+    END-EXEC;
+    printf("ROOMINFO:%s,%s,%s,%s\n",roomnum,roomtype,roomprice,roomstate);
+    EXEC SQL COMMIT RELEASE;
+}

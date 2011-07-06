@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=An Example Program
+Exec=adc
+Icon=Games
+Type=Application
+Name=ADC

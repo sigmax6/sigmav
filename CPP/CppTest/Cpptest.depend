@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1284299562 source:c:\users\sigmax6\documents\vfed\cpp\cpptest\main.cpp
+	"FindPatSimple.h"
+	"FindPatKMP.h"
+	<iostream>
+
+1284115458 c:\users\sigmax6\documents\vfed\cpp\cpptest\findpatsimple.h
+	<string>
+	<assert.h>
+
+1284361227 c:\users\sigmax6\documents\vfed\cpp\cpptest\findpatkmp.h
+	<string>
+	<assert.h>
+

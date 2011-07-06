@@ -1,0 +1,188 @@
+!SESSION 2009-11-06 14:00:52.106 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_0
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.599
+!MESSAGE The installable unit com.trolltech.qtcppdesignerplugins.linux.x86.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.599
+!MESSAGE The installable unit com.trolltech.qtcppdesigner.qtcpp.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.599
+!MESSAGE The installable unit com.trolltech.qtcpp.linux.x86.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.632
+!MESSAGE The installable unit com.trolltech.qtcppdesignerplugins.linux.x86.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.632
+!MESSAGE The installable unit com.trolltech.qtcppdesigner.qtcpp.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.632
+!MESSAGE The installable unit com.trolltech.qtcpp.linux.x86.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.684
+!MESSAGE The installable unit com.trolltech.qtcppdesignerplugins.linux.x86.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.684
+!MESSAGE The installable unit com.trolltech.qtcppdesigner.qtcpp.translated_host_properties is missing the filename property.
+
+!ENTRY org.eclipse.equinox.p2.directorywatcher 4 0 2009-11-06 14:00:54.685
+!MESSAGE The installable unit com.trolltech.qtcpp.linux.x86.translated_host_properties is missing the filename property.
+
+!ENTRY viPlugin 1 0 2009-11-06 14:01:38.569
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@1905a42
+
+!ENTRY viPlugin 1 0 2009-11-06 14:01:41.626
+!MESSAGE partDeactivated: org.eclipse.ui.internal.ViewIntroAdapterPart@6fa22b
+
+!ENTRY viPlugin 1 0 2009-11-06 14:01:41.899
+!MESSAGE windowClosed: org.eclipse.ui.internal.WorkbenchWindow@1905a42
+!SESSION 2009-11-06 14:14:40.593 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_0
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY viPlugin 1 0 2009-11-06 14:14:48.076
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@1df2964
+
+!ENTRY viPlugin 1 0 2009-11-06 14:14:49.461
+!MESSAGE partDeactivated: org.eclipse.ui.internal.ViewIntroAdapterPart@1e2b67c
+
+!ENTRY viPlugin 1 0 2009-11-06 14:14:49.658
+!MESSAGE windowClosed: org.eclipse.ui.internal.WorkbenchWindow@1df2964
+!SESSION 2009-11-07 09:50:52.408 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_0
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY viPlugin 1 0 2009-11-07 09:52:10.154
+!MESSAGE partDeactivated: org.eclipse.ui.internal.ViewIntroAdapterPart@9ffb18
+
+!ENTRY viPlugin 1 0 2009-11-07 09:52:15.326
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 09:52:48.524
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 09:52:50.845
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:16:02.876
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:16:03.349
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:16:08.263
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:16:08.327
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:16:42.961
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:16:57.201
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:12.700
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:16.273
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:25.340
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:25.498
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:31.199
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:31.314
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:34.136
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:18:45.305
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:20:05.275
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:20:06.931
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:20:14.274
+!MESSAGE partDeactivated: org.eclipse.ui.navigator.resources.ProjectExplorer@ba2e48
+
+!ENTRY viPlugin 1 0 2009-11-07 10:20:14.393
+!MESSAGE windowClosed: org.eclipse.ui.internal.WorkbenchWindow@e5f46e
+!SESSION 2009-11-07 10:26:15.502 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_0
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY viPlugin 1 0 2009-11-07 10:26:25.003
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@7a36a2
+
+!ENTRY viPlugin 1 0 2009-11-07 10:26:58.211
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@7a36a2
+
+!ENTRY viPlugin 1 0 2009-11-07 10:27:04.061
+!MESSAGE partDeactivated: org.eclipse.ui.navigator.resources.ProjectExplorer@90288e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:27:07.327
+!MESSAGE partDeactivated: com.trolltech.qtcppdesigner.views.WidgetBoxView@157011e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:27:08.855
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@7a36a2
+
+!ENTRY viPlugin 1 0 2009-11-07 10:42:42.740
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@7a36a2
+
+!ENTRY viPlugin 1 0 2009-11-07 10:42:49.318
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@7a36a2
+
+!ENTRY viPlugin 1 0 2009-11-07 10:42:54.134
+!MESSAGE partDeactivated: org.eclipse.ui.navigator.resources.ProjectExplorer@90288e
+
+!ENTRY viPlugin 1 0 2009-11-07 10:42:54.382
+!MESSAGE windowClosed: org.eclipse.ui.internal.WorkbenchWindow@7a36a2
+!SESSION 2009-11-20 11:42:08.645 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_0
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY viPlugin 1 0 2009-11-20 11:42:24.773
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@234265
+
+!ENTRY viPlugin 1 0 2009-11-20 11:42:26.633
+!MESSAGE windowActivated: org.eclipse.ui.internal.WorkbenchWindow@234265
+
+!ENTRY viPlugin 1 0 2009-11-20 11:42:27.909
+!MESSAGE windowDeactivated: org.eclipse.ui.internal.WorkbenchWindow@234265
+
+!ENTRY viPlugin 1 0 2009-11-20 11:42:29.539
+!MESSAGE partDeactivated: org.eclipse.ui.navigator.resources.ProjectExplorer@5ac5f
+
+!ENTRY viPlugin 1 0 2009-11-20 11:42:29.678
+!MESSAGE windowClosed: org.eclipse.ui.internal.WorkbenchWindow@234265

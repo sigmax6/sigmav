@@ -1,0 +1,225 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AR	menu/Makefile	/^AR       = ar cqs$/;"	m
+AR	se/Makefile	/^AR       = ar cqs$/;"	m
+BUFFER_SIZE	src/client.c	13;"	d	file:
+BUFFER_SIZE	src/server.c	14;"	d	file:
+CC	menu/Makefile	/^CC       = gcc$/;"	m
+CC	se/Makefile	/^CC       = gcc$/;"	m
+CFLAGS	menu/Makefile	/^CFLAGS   = -pipe -Wall -W -Os -D_REENTRANT  -DQTOPIA_DATA_LINKING -DQCONFIG=\\"qconfig-qpe.h\\" -DQTOPIA_TARGET=\\"menu\\" -DQTOPIA_TRTARGET=\\"menu\\" -DQT_NO_DEBUG -DQT_THREAD_SUPPORT$/;"	m
+CFLAGS	se/Makefile	/^CFLAGS   = -pipe -g -Wall -W -O2 -D_REENTRANT  -DQT_NO_DEBUG -DQT_THREAD_SUPPORT -DQT_SHARED -DQT_TABLET_SUPPORT$/;"	m
+CHK_DIR_EXISTS	menu/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
+CHK_DIR_EXISTS	se/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
+COPY	menu/Makefile	/^COPY     = cp -f$/;"	m
+COPY	se/Makefile	/^COPY     = cp -f$/;"	m
+COPY_DIR	menu/Makefile	/^COPY_DIR = $(COPY) -R$/;"	m
+COPY_DIR	se/Makefile	/^COPY_DIR = $(COPY) -r$/;"	m
+COPY_FILE	menu/Makefile	/^COPY_FILE= $(COPY)$/;"	m
+COPY_FILE	se/Makefile	/^COPY_FILE= $(COPY)$/;"	m
+CXX	menu/Makefile	/^CXX      = g++$/;"	m
+CXX	se/Makefile	/^CXX      = g++$/;"	m
+CXXFLAGS	menu/Makefile	/^CXXFLAGS = -pipe -DQWS -fno-exceptions -fno-rtti -Wall -W -Os -D_REENTRANT  -DQTOPIA_DATA_LINKING -DQCONFIG=\\"qconfig-qpe.h\\" -DQTOPIA_TARGET=\\"menu\\" -DQTOPIA_TRTARGET=\\"menu\\" -DQT_NO_DEBUG -DQT_THREAD_SUPPORT$/;"	m
+CXXFLAGS	se/Makefile	/^CXXFLAGS = -pipe -g -Wall -W -O2 -D_REENTRANT  -DQT_NO_DEBUG -DQT_THREAD_SUPPORT -DQT_SHARED -DQT_TABLET_SUPPORT$/;"	m
+ClientSocket	se/myserver.h	/^	ClientSocket(int sock,QObject *parent=0,const char *name=0):$/;"	f	class:ClientSocket	access:public	signature:(int sock,QObject *parent=0,const char *name=0)
+ClientSocket	se/myserver.h	/^class ClientSocket:public QSocket$/;"	c	inherits:QSocket
+ClientSocket::ClientSocket	se/myserver.h	/^	ClientSocket(int sock,QObject *parent=0,const char *name=0):$/;"	f	class:ClientSocket	access:public	signature:(int sock,QObject *parent=0,const char *name=0)
+ClientSocket::className	se/moc_myserver.cpp	/^const char *ClientSocket::className() const$/;"	f	class:ClientSocket	signature:() const
+ClientSocket::metaObj	se/moc_myserver.cpp	/^QMetaObject *ClientSocket::metaObj = 0;$/;"	m	class:ClientSocket	file:
+ClientSocket::qt_cast	se/moc_myserver.cpp	/^void* ClientSocket::qt_cast( const char* clname )$/;"	f	class:ClientSocket	signature:( const char* clname )
+ClientSocket::qt_emit	se/moc_myserver.cpp	/^bool ClientSocket::qt_emit( int _id, QUObject* _o )$/;"	f	class:ClientSocket	signature:( int _id, QUObject* _o )
+ClientSocket::qt_invoke	se/moc_myserver.cpp	/^bool ClientSocket::qt_invoke( int _id, QUObject* _o )$/;"	f	class:ClientSocket	signature:( int _id, QUObject* _o )
+ClientSocket::qt_property	se/moc_myserver.cpp	/^bool ClientSocket::qt_property( int id, int f, QVariant* v)$/;"	f	class:ClientSocket	signature:( int id, int f, QVariant* v)
+ClientSocket::qt_static_property	se/moc_myserver.cpp	/^bool ClientSocket::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }$/;"	f	class:ClientSocket	signature:( QObject* , int , int , QVariant* )
+ClientSocket::readClient	se/myserver.h	/^	void readClient()$/;"	f	class:ClientSocket	access:public	signature:()
+ClientSocket::staticMetaObject	se/moc_myserver.cpp	/^QMetaObject* ClientSocket::staticMetaObject()$/;"	f	class:ClientSocket	signature:()
+ClientSocket::tr	se/moc_myserver.cpp	/^QString ClientSocket::tr( const char *s, const char *c )$/;"	f	class:ClientSocket	signature:( const char *s, const char *c )
+ClientSocket::trUtf8	se/moc_myserver.cpp	/^QString ClientSocket::trUtf8( const char *s, const char *c )$/;"	f	class:ClientSocket	signature:( const char *s, const char *c )
+ClientSocket::~ClientSocket	se/myserver.h	/^	~ClientSocket()$/;"	f	class:ClientSocket	access:public	signature:()
+DEL_DIR	menu/Makefile	/^DEL_DIR  = rmdir$/;"	m
+DEL_DIR	se/Makefile	/^DEL_DIR  = rmdir$/;"	m
+DEL_FILE	menu/Makefile	/^DEL_FILE = rm -f$/;"	m
+DEL_FILE	se/Makefile	/^DEL_FILE = rm -f$/;"	m
+DESTDIR	menu/Makefile	/^DESTDIR  = $/;"	m
+DESTDIR	se/Makefile	/^DESTDIR  = $/;"	m
+DIST	menu/Makefile	/^DIST	   = \/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qtopia\/src\/projects.pri \\$/;"	m
+DIST	se/Makefile	/^DIST	   = se.pro$/;"	m
+DishId	se/main.cpp	/^QString DishId;$/;"	v
+FORMS	menu/Makefile	/^FORMS = mymenu.ui$/;"	m
+FORMS	se/Makefile	/^FORMS = $/;"	m
+GZIP	menu/Makefile	/^GZIP     = gzip -9f$/;"	m
+GZIP	se/Makefile	/^GZIP     = gzip -9f$/;"	m
+HEADERS	menu/Makefile	/^HEADERS = $/;"	m
+HEADERS	se/Makefile	/^HEADERS = myserver.h$/;"	m
+HELLO_WORLD_SERVER_PORT	src/client.c	12;"	d	file:
+HELLO_WORLD_SERVER_PORT	src/server.c	12;"	d	file:
+INCPATH	menu/Makefile	/^INCPATH  = -I\/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qtopia\/mkspecs\/qws\/linux-generic-g++ -I. -I\/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qtopia\/include -I\/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qt2\/include -I.ui\/ -I. -I.moc\/$/;"	m
+INCPATH	se/Makefile	/^INCPATH  = -I\/usr\/share\/qt3\/mkspecs\/default -I. -I. -I\/usr\/include\/qt3$/;"	m
+INSTALL_DIR	menu/Makefile	/^INSTALL_DIR = cp -arf$/;"	m
+INSTALL_DIR	se/Makefile	/^INSTALL_DIR = $(COPY_DIR)$/;"	m
+INSTALL_FILE	menu/Makefile	/^INSTALL_FILE= install -c$/;"	m
+INSTALL_FILE	se/Makefile	/^INSTALL_FILE= $(COPY_FILE)$/;"	m
+LENGTH_OF_LISTEN_QUEUE	src/server.c	13;"	d	file:
+LEX	menu/Makefile	/^LEX      = flex$/;"	m
+LEX	se/Makefile	/^LEX      = flex$/;"	m
+LEXFLAGS	menu/Makefile	/^LEXFLAGS = $/;"	m
+LEXFLAGS	se/Makefile	/^LEXFLAGS = $/;"	m
+LFLAGS	menu/Makefile	/^LFLAGS   = $/;"	m
+LFLAGS	se/Makefile	/^LFLAGS   = $/;"	m
+LIBS	menu/Makefile	/^LIBS     = $(SUBLIBS)  -L\/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qtopia\/lib -L\/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qt2\/lib -lqte-mt -lpthread$/;"	m
+LIBS	se/Makefile	/^LIBS     = $(SUBLIBS) -L\/usr\/share\/qt3\/lib -L\/usr\/X11R6\/lib -lqt-mt -lXext -lX11 -lm -lpthread$/;"	m
+LINK	menu/Makefile	/^LINK     = g++$/;"	m
+LINK	se/Makefile	/^LINK     = g++$/;"	m
+MKDIR	menu/Makefile	/^MKDIR    = mkdir -p$/;"	m
+MKDIR	se/Makefile	/^MKDIR    = mkdir -p$/;"	m
+MOC	menu/Makefile	/^MOC      = \/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qt2\/bin\/moc$/;"	m
+MOC	se/Makefile	/^MOC      = \/usr\/share\/qt3\/bin\/moc$/;"	m
+MOVE	menu/Makefile	/^MOVE     = mv -f$/;"	m
+MOVE	se/Makefile	/^MOVE     = mv -f$/;"	m
+MYSERVER_H	se/myserver.h	10;"	d
+MY_PORT	test1/server.c	5;"	d	file:
+OBJECTS	menu/Makefile	/^OBJECTS = .obj\/main.o \\$/;"	m
+OBJECTS	se/Makefile	/^OBJECTS = main.o \\$/;"	m
+OBJECTS_DIR	menu/Makefile	/^OBJECTS_DIR = .obj\/$/;"	m
+OBJECTS_DIR	se/Makefile	/^OBJECTS_DIR = .\/$/;"	m
+OBJMOC	menu/Makefile	/^OBJMOC = .obj\/moc_mymenu.o$/;"	m
+OBJMOC	se/Makefile	/^OBJMOC = moc_myserver.o$/;"	m
+QMAKE	menu/Makefile	/^QMAKE    = qmake$/;"	m
+QMAKE	se/Makefile	/^QMAKE    = qmake$/;"	m
+QMAKE_TARGET	menu/Makefile	/^QMAKE_TARGET = menu$/;"	m
+QMAKE_TARGET	se/Makefile	/^QMAKE_TARGET = se$/;"	m
+QT_NO_COMPAT	se/moc_myserver.cpp	10;"	d	file:
+RANLIB	menu/Makefile	/^RANLIB   = $/;"	m
+RANLIB	se/Makefile	/^RANLIB   = $/;"	m
+SOURCES	menu/Makefile	/^SOURCES = main.cpp$/;"	m
+SOURCES	se/Makefile	/^SOURCES = main.cpp \\$/;"	m
+SRCMOC	menu/Makefile	/^SRCMOC   = .moc\/moc_mymenu.cpp$/;"	m
+SRCMOC	se/Makefile	/^SRCMOC   = moc_myserver.cpp$/;"	m
+SYMLINK	menu/Makefile	/^SYMLINK  = ln -sf$/;"	m
+SYMLINK	se/Makefile	/^SYMLINK  = ln -sf$/;"	m
+SimpleServer	se/myserver.h	/^	SimpleServer(QObject* parent=0):QServerSocket(2000,1,parent)$/;"	f	class:SimpleServer	access:public	signature:(QObject* parent=0)
+SimpleServer	se/myserver.h	/^class SimpleServer:public QServerSocket$/;"	c	inherits:QServerSocket
+SimpleServer::SimpleServer	se/myserver.h	/^	SimpleServer(QObject* parent=0):QServerSocket(2000,1,parent)$/;"	f	class:SimpleServer	access:public	signature:(QObject* parent=0)
+SimpleServer::className	se/moc_myserver.cpp	/^const char *SimpleServer::className() const$/;"	f	class:SimpleServer	signature:() const
+SimpleServer::metaObj	se/moc_myserver.cpp	/^QMetaObject *SimpleServer::metaObj = 0;$/;"	m	class:SimpleServer	file:
+SimpleServer::newConnect	se/moc_myserver.cpp	/^void SimpleServer::newConnect( ClientSocket* t0 )$/;"	f	class:SimpleServer	signature:( ClientSocket* t0 )
+SimpleServer::newConnect	se/myserver.h	/^	void newConnect(ClientSocket*);$/;"	p	class:SimpleServer	access:public	signature:(ClientSocket*)
+SimpleServer::newConnection	se/myserver.h	/^	void newConnection(int socket)$/;"	f	class:SimpleServer	access:public	signature:(int socket)
+SimpleServer::qt_cast	se/moc_myserver.cpp	/^void* SimpleServer::qt_cast( const char* clname )$/;"	f	class:SimpleServer	signature:( const char* clname )
+SimpleServer::qt_emit	se/moc_myserver.cpp	/^bool SimpleServer::qt_emit( int _id, QUObject* _o )$/;"	f	class:SimpleServer	signature:( int _id, QUObject* _o )
+SimpleServer::qt_invoke	se/moc_myserver.cpp	/^bool SimpleServer::qt_invoke( int _id, QUObject* _o )$/;"	f	class:SimpleServer	signature:( int _id, QUObject* _o )
+SimpleServer::qt_property	se/moc_myserver.cpp	/^bool SimpleServer::qt_property( int id, int f, QVariant* v)$/;"	f	class:SimpleServer	signature:( int id, int f, QVariant* v)
+SimpleServer::qt_static_property	se/moc_myserver.cpp	/^bool SimpleServer::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }$/;"	f	class:SimpleServer	signature:( QObject* , int , int , QVariant* )
+SimpleServer::staticMetaObject	se/moc_myserver.cpp	/^QMetaObject* SimpleServer::staticMetaObject()$/;"	f	class:SimpleServer	signature:()
+SimpleServer::tr	se/moc_myserver.cpp	/^QString SimpleServer::tr( const char *s, const char *c )$/;"	f	class:SimpleServer	signature:( const char *s, const char *c )
+SimpleServer::trUtf8	se/moc_myserver.cpp	/^QString SimpleServer::trUtf8( const char *s, const char *c )$/;"	f	class:SimpleServer	signature:( const char *s, const char *c )
+SimpleServer::~SimpleServer	se/myserver.h	/^	~SimpleServer()$/;"	f	class:SimpleServer	access:public	signature:()
+TAR	menu/Makefile	/^TAR      = tar -cf$/;"	m
+TAR	se/Makefile	/^TAR      = tar -cf$/;"	m
+TARGET	menu/Makefile	/^TARGET   = menu$/;"	m
+TARGET	se/Makefile	/^TARGET   = se$/;"	m
+TRANSLATABLES	menu/Makefile	/^TRANSLATABLES = $/;"	m
+UIC	menu/Makefile	/^UIC      = \/opt\/FriendlyARM\/mini2440\/x86-qtopia\/qtopia-2.2.0-FriendlyARM\/qt2\/bin\/uic$/;"	m
+UIC	se/Makefile	/^UIC      = \/usr\/share\/qt3\/bin\/uic$/;"	m
+UICDECLS	menu/Makefile	/^UICDECLS = .ui\/mymenu.h$/;"	m
+UICDECLS	se/Makefile	/^UICDECLS = $/;"	m
+UICIMPLS	menu/Makefile	/^UICIMPLS = .ui\/mymenu.cpp$/;"	m
+UICIMPLS	se/Makefile	/^UICIMPLS = $/;"	m
+YACC	menu/Makefile	/^YACC     = yacc$/;"	m
+YACC	se/Makefile	/^YACC     = yacc$/;"	m
+YACCFLAGS	menu/Makefile	/^YACCFLAGS= -d$/;"	m
+YACCFLAGS	se/Makefile	/^YACCFLAGS= -d$/;"	m
+className	se/moc_myserver.cpp	/^const char *ClientSocket::className() const$/;"	f	class:ClientSocket	signature:() const
+className	se/moc_myserver.cpp	/^const char *SimpleServer::className() const$/;"	f	class:SimpleServer	signature:() const
+className	se/moc_myserver.cpp	/^const char *myserver::className() const$/;"	f	class:myserver	signature:() const
+createConnection	menu/main.cpp	/^ bool createConnection()$/;"	f	signature:()
+groupBox1	se/myserver.h	/^    QGroupBox* groupBox1;$/;"	m	class:myserver	access:public
+languageChange	se/myserver.cpp	/^void myserver::languageChange()$/;"	f	class:myserver	signature:()
+languageChange	se/myserver.h	/^    virtual void languageChange();$/;"	p	class:myserver	access:protected	signature:()
+main	getHost.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	menu/main.cpp	/^int main( int argc, char ** argv )$/;"	f	signature:( int argc, char ** argv )
+main	scoket/client1.c	/^int main()$/;"	f
+main	scoket/client2.c	/^int main()$/;"	f
+main	scoket/client3.c	/^int main()$/;"	f
+main	scoket/getdate.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	scoket/getname.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	scoket/select.c	/^int main()$/;"	f
+main	scoket/server1.c	/^int main()$/;"	f
+main	scoket/server2.c	/^int main()$/;"	f
+main	scoket/server3.c	/^int main()$/;"	f
+main	scoket/server4.c	/^int main()$/;"	f
+main	scoket/server5.c	/^int main()$/;"	f
+main	se/main.cpp	/^int main( int argc, char ** argv )$/;"	f	signature:( int argc, char ** argv )
+main	src/client.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+main	src/server.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+main	test1/client1.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	test1/server.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	test1/server1.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+metaObj	se/moc_myserver.cpp	/^QMetaObject *ClientSocket::metaObj = 0;$/;"	m	class:ClientSocket	file:
+metaObj	se/moc_myserver.cpp	/^QMetaObject *SimpleServer::metaObj = 0;$/;"	m	class:SimpleServer	file:
+metaObj	se/moc_myserver.cpp	/^QMetaObject *myserver::metaObj = 0;$/;"	m	class:myserver	file:
+mymenu::orderpressed	menu/mymenu.ui.h	/^void mymenu::orderpressed()$/;"	f	class:mymenu	signature:()
+mymenu::querypressed	menu/mymenu.ui.h	/^void mymenu::querypressed()$/;"	f	class:mymenu	signature:()
+myserver	se/myserver.cpp	/^myserver::myserver( QWidget* parent, const char* name, bool modal, WFlags fl )$/;"	f	class:myserver	signature:( QWidget* parent, const char* name, bool modal, WFlags fl )
+myserver	se/myserver.h	/^    myserver( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );$/;"	p	class:myserver	access:public	signature:( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 )
+myserver	se/myserver.h	/^class myserver : public QDialog$/;"	c	inherits:QDialog
+myserver::className	se/moc_myserver.cpp	/^const char *myserver::className() const$/;"	f	class:myserver	signature:() const
+myserver::groupBox1	se/myserver.h	/^    QGroupBox* groupBox1;$/;"	m	class:myserver	access:public
+myserver::languageChange	se/myserver.cpp	/^void myserver::languageChange()$/;"	f	class:myserver	signature:()
+myserver::languageChange	se/myserver.h	/^    virtual void languageChange();$/;"	p	class:myserver	access:protected	signature:()
+myserver::metaObj	se/moc_myserver.cpp	/^QMetaObject *myserver::metaObj = 0;$/;"	m	class:myserver	file:
+myserver::myserver	se/myserver.cpp	/^myserver::myserver( QWidget* parent, const char* name, bool modal, WFlags fl )$/;"	f	class:myserver	signature:( QWidget* parent, const char* name, bool modal, WFlags fl )
+myserver::myserver	se/myserver.h	/^    myserver( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );$/;"	p	class:myserver	access:public	signature:( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 )
+myserver::newConnect	se/myserver.cpp	/^void myserver::newConnect()$/;"	f	class:myserver	signature:()
+myserver::newConnect	se/myserver.h	/^    void newConnect();$/;"	p	class:myserver	access:protected	signature:()
+myserver::qt_cast	se/moc_myserver.cpp	/^void* myserver::qt_cast( const char* clname )$/;"	f	class:myserver	signature:( const char* clname )
+myserver::qt_emit	se/moc_myserver.cpp	/^bool myserver::qt_emit( int _id, QUObject* _o )$/;"	f	class:myserver	signature:( int _id, QUObject* _o )
+myserver::qt_invoke	se/moc_myserver.cpp	/^bool myserver::qt_invoke( int _id, QUObject* _o )$/;"	f	class:myserver	signature:( int _id, QUObject* _o )
+myserver::qt_property	se/moc_myserver.cpp	/^bool myserver::qt_property( int id, int f, QVariant* v)$/;"	f	class:myserver	signature:( int id, int f, QVariant* v)
+myserver::qt_static_property	se/moc_myserver.cpp	/^bool myserver::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }$/;"	f	class:myserver	signature:( QObject* , int , int , QVariant* )
+myserver::staticMetaObject	se/moc_myserver.cpp	/^QMetaObject* myserver::staticMetaObject()$/;"	f	class:myserver	signature:()
+myserver::textBrowser1	se/myserver.h	/^    QTextBrowser* textBrowser1;$/;"	m	class:myserver	access:public
+myserver::tr	se/moc_myserver.cpp	/^QString myserver::tr( const char *s, const char *c )$/;"	f	class:myserver	signature:( const char *s, const char *c )
+myserver::trUtf8	se/moc_myserver.cpp	/^QString myserver::trUtf8( const char *s, const char *c )$/;"	f	class:myserver	signature:( const char *s, const char *c )
+myserver::~myserver	se/myserver.cpp	/^myserver::~myserver()$/;"	f	class:myserver	signature:()
+myserver::~myserver	se/myserver.h	/^    ~myserver();$/;"	p	class:myserver	access:public	signature:()
+newConnect	se/moc_myserver.cpp	/^void SimpleServer::newConnect( ClientSocket* t0 )$/;"	f	class:SimpleServer	signature:( ClientSocket* t0 )
+newConnect	se/myserver.cpp	/^void myserver::newConnect()$/;"	f	class:myserver	signature:()
+newConnect	se/myserver.h	/^	void newConnect(ClientSocket*);$/;"	p	class:SimpleServer	access:public	signature:(ClientSocket*)
+newConnect	se/myserver.h	/^    void newConnect();$/;"	p	class:myserver	access:protected	signature:()
+newConnection	se/myserver.h	/^	void newConnection(int socket)$/;"	f	class:SimpleServer	access:public	signature:(int socket)
+orderpressed	menu/mymenu.ui.h	/^void mymenu::orderpressed()$/;"	f	class:mymenu	signature:()
+qt_cast	se/moc_myserver.cpp	/^void* ClientSocket::qt_cast( const char* clname )$/;"	f	class:ClientSocket	signature:( const char* clname )
+qt_cast	se/moc_myserver.cpp	/^void* SimpleServer::qt_cast( const char* clname )$/;"	f	class:SimpleServer	signature:( const char* clname )
+qt_cast	se/moc_myserver.cpp	/^void* myserver::qt_cast( const char* clname )$/;"	f	class:myserver	signature:( const char* clname )
+qt_emit	se/moc_myserver.cpp	/^bool ClientSocket::qt_emit( int _id, QUObject* _o )$/;"	f	class:ClientSocket	signature:( int _id, QUObject* _o )
+qt_emit	se/moc_myserver.cpp	/^bool SimpleServer::qt_emit( int _id, QUObject* _o )$/;"	f	class:SimpleServer	signature:( int _id, QUObject* _o )
+qt_emit	se/moc_myserver.cpp	/^bool myserver::qt_emit( int _id, QUObject* _o )$/;"	f	class:myserver	signature:( int _id, QUObject* _o )
+qt_invoke	se/moc_myserver.cpp	/^bool ClientSocket::qt_invoke( int _id, QUObject* _o )$/;"	f	class:ClientSocket	signature:( int _id, QUObject* _o )
+qt_invoke	se/moc_myserver.cpp	/^bool SimpleServer::qt_invoke( int _id, QUObject* _o )$/;"	f	class:SimpleServer	signature:( int _id, QUObject* _o )
+qt_invoke	se/moc_myserver.cpp	/^bool myserver::qt_invoke( int _id, QUObject* _o )$/;"	f	class:myserver	signature:( int _id, QUObject* _o )
+qt_property	se/moc_myserver.cpp	/^bool ClientSocket::qt_property( int id, int f, QVariant* v)$/;"	f	class:ClientSocket	signature:( int id, int f, QVariant* v)
+qt_property	se/moc_myserver.cpp	/^bool SimpleServer::qt_property( int id, int f, QVariant* v)$/;"	f	class:SimpleServer	signature:( int id, int f, QVariant* v)
+qt_property	se/moc_myserver.cpp	/^bool myserver::qt_property( int id, int f, QVariant* v)$/;"	f	class:myserver	signature:( int id, int f, QVariant* v)
+qt_static_property	se/moc_myserver.cpp	/^bool ClientSocket::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }$/;"	f	class:ClientSocket	signature:( QObject* , int , int , QVariant* )
+qt_static_property	se/moc_myserver.cpp	/^bool SimpleServer::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }$/;"	f	class:SimpleServer	signature:( QObject* , int , int , QVariant* )
+qt_static_property	se/moc_myserver.cpp	/^bool myserver::qt_static_property( QObject* , int , int , QVariant* ){ return FALSE; }$/;"	f	class:myserver	signature:( QObject* , int , int , QVariant* )
+querypressed	menu/mymenu.ui.h	/^void mymenu::querypressed()$/;"	f	class:mymenu	signature:()
+readClient	se/myserver.h	/^	void readClient()$/;"	f	class:ClientSocket	access:public	signature:()
+staticMetaObject	se/moc_myserver.cpp	/^QMetaObject* ClientSocket::staticMetaObject()$/;"	f	class:ClientSocket	signature:()
+staticMetaObject	se/moc_myserver.cpp	/^QMetaObject* SimpleServer::staticMetaObject()$/;"	f	class:SimpleServer	signature:()
+staticMetaObject	se/moc_myserver.cpp	/^QMetaObject* myserver::staticMetaObject()$/;"	f	class:myserver	signature:()
+textBrowser1	se/myserver.h	/^    QTextBrowser* textBrowser1;$/;"	m	class:myserver	access:public
+tr	se/moc_myserver.cpp	/^QString ClientSocket::tr( const char *s, const char *c )$/;"	f	class:ClientSocket	signature:( const char *s, const char *c )
+tr	se/moc_myserver.cpp	/^QString SimpleServer::tr( const char *s, const char *c )$/;"	f	class:SimpleServer	signature:( const char *s, const char *c )
+tr	se/moc_myserver.cpp	/^QString myserver::tr( const char *s, const char *c )$/;"	f	class:myserver	signature:( const char *s, const char *c )
+trUtf8	se/moc_myserver.cpp	/^QString ClientSocket::trUtf8( const char *s, const char *c )$/;"	f	class:ClientSocket	signature:( const char *s, const char *c )
+trUtf8	se/moc_myserver.cpp	/^QString SimpleServer::trUtf8( const char *s, const char *c )$/;"	f	class:SimpleServer	signature:( const char *s, const char *c )
+trUtf8	se/moc_myserver.cpp	/^QString myserver::trUtf8( const char *s, const char *c )$/;"	f	class:myserver	signature:( const char *s, const char *c )
+~ClientSocket	se/myserver.h	/^	~ClientSocket()$/;"	f	class:ClientSocket	access:public	signature:()
+~SimpleServer	se/myserver.h	/^	~SimpleServer()$/;"	f	class:SimpleServer	access:public	signature:()
+~myserver	se/myserver.cpp	/^myserver::~myserver()$/;"	f	class:myserver	signature:()
+~myserver	se/myserver.h	/^    ~myserver();$/;"	p	class:myserver	access:public	signature:()

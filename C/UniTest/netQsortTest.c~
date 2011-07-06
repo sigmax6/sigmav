@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define WINDOWSIZE 9
+
+void qswap (unsigned char * a ,unsigned char * b)
+{
+ /*   *a = (*a)^(*b);
+  *       *b = (*a)^(*b);
+  *           *a = (*a)^(*b);
+  *               */
+    unsigned char tmp;
+    tmp = *a;
+    *a  = *b;
+    *b  = tmp;
+}
+
+int qpart (unsigned char * window, int p,  int r)
+{
+
+    unsigned char middle = window[r];
+#ifdef DEBUG
+    printf("middle:%x\n",middle);
+#endif
+    int psmall = p;
+    int plarge = p;
+    for (; plarge < r; plarge ++)
+    {
+            if(window[plarge] <= middle)
+            {
+                        qswap(&window[plarge],&window[psmall++]);
+#ifdef DEBUG
+                        printf("Swap:%x<>%x\n",window[plarge],window[psmall-1]);
+#endif
+                    }
+        }
+    qswap(&window[r],&window[psmall]);
+    return psmall;
+}
+
+void myqsort(unsigned char * window, int p , int r)
+{
+    if(p<r)
+    {
+               int q = 0;
+               q = qpart(window,p,r);
+               myqsort(window,p,q-1);
+               myqsort(window,q+1,r);
+            }
+}
+
+void myqsort_m(unsigned char * window, int p , int r ,int m)
+{
+    if(p<r)
+    {
+           int q = 0;
+           q = qpart(window,p,r);
+           if (q == m)
+           {
+                      return ;
+                  }
+           else if ( q > m )
+           {
+                     return  myqsort_m(window,p,q-1,m);
+                  }
+           else
+           {
+                     return  myqsort_m(window,q+1,r,m);
+                  }
+        }
+}
+
+char mfsort (unsigned char * window , int size)
+{
+    myqsort(window,0,size-1);
+    return window[size/2];
+}
+
+char mfsort_m (unsigned char * window , int size)
+{
+    myqsort_m(window,0,size-1,size/2);
+    return window[size/2];
+}
+
+int main (int argc, char const* argv[])
+{
+    int window[WINDOWSIZE]={0};
+    int window_dist[WINDOWSIZE]={0};
+    int i;
+    clock_t time;
+    while(1)
+    {
+        for (i=0;i<WINDOWSIZE;i++)
+        {
+            window[i]=window_dist[i]=rand();
+        }
+        puts("window before sort :\n");
+        for (i=0;i<WINDOWSIZE;i++)
+        {
+            printf("%d ",window[i]);
+        }
+        puts("\nwindow after myqsort :\n");
+        time = clock();
+        mfsort(window,WINDOWSIZE);
+        for(i=0;i<WINDOWSIZE;i++)
+        {
+            printf("%d ",window[i]);
+        }
+        time = clock()-time;
+        printf("\nmyqsort time : %f",(double)time/CLOCKS_PER_SEC);
+        puts("\nwindow after myqsort_m :\n");
+        time = clock();
+        mfsort_m(window_dist,WINDOWSIZE);
+        for(i=0;i<WINDOWSIZE;i++)
+        {
+            printf("%d ",window_dist[i]);
+        }
+        time = clock()-time;
+        printf("\nmyqsort_m time : %f",(double)time/CLOCKS_PER_SEC);
+        getchar();
+    }
+
+    return 0;
+}
+

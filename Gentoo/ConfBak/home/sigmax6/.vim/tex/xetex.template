@@ -1,0 +1,18 @@
+\documentclass[11pt,a4paper]{article}
+%------------------------------------------------------------------------------------------------------
+\usepackage{xltxtra,fontspec,xunicode}    %这里使用xetex相应的宏包
+\usepackage{zhfont}                       %这里调用zhspacing
+\zhspacing
+%------------------------------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------------------------------
+\setzhmainfont[BoldFont=LiHei Pro]{Microsoft YaHei}%这里设置中文粗体和普通字体
+%\setmainfont{TeX Gyre Pagella}           %这里设置英文衬线字体
+\setmainfont{CMU Serif}
+\setmonofont{Monaco}                     %英文等宽字体
+\setsansfont{Lucida Grande}               %英文无衬线字体
+%-------------------------------------------------------------------------------------------------------
+
+\begin{document}
+
+\end{document}

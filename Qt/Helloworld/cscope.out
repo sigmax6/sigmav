@@ -1,0 +1,63 @@
+cscope 15 $HOME/Documents/Workspace/Qt/Helloworld               0000000343
+	@hello.cpp
+
+1 
+	~<QAµliÿtiÚ
+>
+
+2 
+	~<QLab–
+>
+
+4 
+	$maš
+ (
+¬gc
+, * 
+¬gv
+[])
+
+6 
+QAµliÿtiÚ
+ 
+	`­p
+(
+¬gc
+,
+¬gv
+);
+
+7 
+QLab–
+ * 
+Ïb–
+ = 
+Ãw
+ 
+	`QLab–
+("<h2><i> Hello</i>" "<font color=red> Qt!</font></h2>");
+
+8 
+Ïb–
+->
+	`show
+();
+
+9  
+­p
+.
+	`exec
+();
+
+10 
+	}
+}
+
+	@
+1
+.
+1
+/usr/include
+1
+10
+hello.cpp

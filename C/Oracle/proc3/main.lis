@@ -1,0 +1,22 @@
+
+Pro*C/C++: Release 11.2.0.1.0 - Production on Sun Jul 25 19:08:50 2010
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Error at line 173, column 7 in file main.pc
+   173                                  EXEC SQL SELECT ROOM_ID
+   173  ......1
+   173  PLS-S-00905, object SCOTT.ROOM_INFO is invalid
+Error at line 173, column 7 in file main.pc
+   173                                  EXEC SQL SELECT ROOM_ID
+   173  ......1
+   173  PLS-S-00000, SQL Statement ignored
+Error at line 173, column 7 in file main.pc
+   173                                  EXEC SQL SELECT ROOM_ID
+   173  ......1
+   173  PCC-S-02346, PL/SQL found semantic errors
+Error at line 393, column 31 in file main.pc
+   393                                     SET SEX=:sex,MOBILE=:moblie,ROOM_ID=
+        :room_id
+   393  ..............................1
+   393  PCC-S-02322, found undefined identifier

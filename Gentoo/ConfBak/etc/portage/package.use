@@ -1,0 +1,75 @@
+gnome-base/gnome-panel bonobo
+sys-fs/udev extras
+sys-auth/consolekit policykit
+sys-block/parted device-mapper
+gnome-base/gvfs gdu 
+media-video/ffmpeg threads
+dev-libs/libxml icu
+dev-libs/libxml2 icu
+media-libs/libsdl audio video
+dev-lang/lua deprecated
+media-video/vlc dvd ffmpeg mpeg mad wxwindows aac dts a52 ogg flac theora oggvorbis matroska freetype bidi xv svga gnutls stream vlm httpd cdda vcd cdio live win32codecs ncurses opengl sdl skins truetype wxwindows xv
+dev-db/sqlite threadsafe
+dev-vcs/subversion -nowebdav
+dev-vcs/subversion webdav-neon webdav-serf
+x11-themes/gtk-engines-murrine themes
+xfce-base/xfdesktop libnotify thunar
+app-text/acroread -linguas_ja
+dev-lang/python sqlite
+app-i18n/ibus gconf
+www-plugins/adobe-flash 64bit bindist vdpau
+sci-geosciences/googleearth mdns-bundled qt-bundled
+dev-db/sqlite extensions
+app-laptop/tp_smapi hdaps
+net-analyzer/wireshark caps
+app-text/enchant hunspell
+app-misc/tomboy applet
+media-sound/rhythmbox  nsplugin webkit
+app-emulation/virtualbox additions extensions java sdk
+sys-fs/ntfs3g fuse udev
+app-editors/gvim cscope
+app-editors/vim cscope vim-pager
+media-video/smplayer ass png
+media-video/mplayer ass png
+gnome-extra/avant-window-navigator thunar
+media-gfx/f-spot flickr
+app-misc/tasque rememberthemilk sqlite
+sys-apps/man-db berkdb
+dev-libs/lzo static-libs
+x11-libs/qt-sql sqlite
+x11-libs/qt-core exceptions
+x11-libs/qt-gui qt3support
+net-misc/networkmanager dhcpcd resolvconf connection-sharing
+gnome-base/gvfs gdu
+sys-block/parted device-mapper
+app-emulation/wine gecko  win32
+net-im/pidgin qq
+gnome-extra/indicator-application python
+dev-java/swt -xulrunner
+app-misc/google-desktop firefox
+net-analyzer/wireshark pcap
+x11-libs/libdrm libkms
+media-sound/rhythmbox libnotify
+x11-misc/google-gadgets -xulrunner
+mail-client/mutt imap smtp
+mail-client/thunderbird libnotify lightning
+xfce-base/thunar libnotify
+media-gfx/picasa nsplugin
+app-text/poppler xpdf-headers
+xfce-extra/thunar-volman libnotify
+dev-lang/php cli
+dev-lang/php gd
+x11-libs/qt-declarative webkit
+media-libs/libpng static-libs
+virtual/jpeg static-libs
+media-libs/jpeg static-libs
+media-gfx/splashutils fbcondecor
+cross-sparc-unknown-elf/binutils -selinux
+sys-apps/tuxonice-userui fbsplash
+media-libs/lcms static-libs
+media-libs/libmng lcms
+media-libs/libmng static-libs
+media-gfx/imagemagick tiff
+media-gfx/imagemagick tiff
+media-gfx/imagemagick tiff
+dev-lang/vala vapigen

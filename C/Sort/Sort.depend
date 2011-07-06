@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1268568090 source:/home/sigmax6/Documents/C/Sort/main.c
+	<stdio.h>
+
+1268568061 source:/home/sigmax6/Documents/C/Sort/selection.c
+	<stdio.h>
+
+1279103259 source:e:\sigmax6\documents\c\sort\selection.c
+	<stdio.h>
+
+1279103298 source:e:\sigmax6\documents\c\sort\main.c
+	<stdio.h>
+
+1285221541 source:c:\users\sigmax6\documents\vfed\c\sort\main.c
+	<stdio.h>
+	"selection.h"
+	"insertion.h"
+	"merge.h"
+	"../Search/binarySearchIterate.h"
+
+1285054112 c:\users\sigmax6\documents\vfed\c\sort\selection.h
+	"swap.h"
+
+1284948838 c:\users\sigmax6\documents\vfed\c\sort\swap.h
+
+1285069484 c:\users\sigmax6\documents\vfed\c\sort\insertion.h
+
+1285159043 c:\users\sigmax6\documents\vfed\c\sort\merge.h
+	<malloc.h>
+	<limits.h>
+
+1285222730 c:\users\sigmax6\documents\vfed\c\search\binarysearchiterate.h
+

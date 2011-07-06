@@ -1,0 +1,81 @@
+cscope 15 $HOME/Documents/Workspace/Qt/HelloPushButton               0000000415
+	@main.cpp
+
+1 
+	~<QAµliÿtiÚ
+>
+
+2 
+	~<QPushBu‰Ú
+>
+
+3 
+	$maš
+ (
+¬gc
+, * 
+¬gv
+[])
+
+5 
+QAµliÿtiÚ
+ 
+	`­p
+(
+¬gc
+,
+¬gv
+);
+
+6 
+QPushBu‰Ú
+ * 
+h–loBu‰Ú
+ = 
+Ãw
+ 
+	`QPushBu‰Ú
+("Hello Button");
+
+7 
+QObjeù
+::
+	`cÚÃù
+(
+h–loBu‰Ú
+,
+	`SIGNAL
+(
+	`þicked
+()),&
+­p
+,
+	`SLOT
+(
+	`qu™
+()));
+
+8 
+h–loBu‰Ú
+->
+	`show
+();
+
+9  
+­p
+.
+	`exec
+();
+
+10 
+	}
+}
+
+	@
+1
+.
+1
+/usr/include
+1
+9
+main.cpp

@@ -1,0 +1,103 @@
+room 表
+//查
+CREATE PROCEDURE GetRoomInfo
+@Param varchar(50)
+AS
+		SELECT type_id,state
+		FROM room
+		WHERE room_num=@Param
+
+//增
+CREATE PROCEDURE InsertNew
+	@roomnum varchar(50),@typeid int
+AS
+	INSERT INTO room(room_num,type_id)
+	VALUES(@roomnum,@typeid)
+
+//改
+CREATE PROCEDURE UpdateRoom
+  @roomnum varchar(50),
+  @typeid int,
+  @sta char(10)
+AS
+	UPDATE room
+	SET type_id=@typeid,state=@sta
+	WHERE room_num=@roomnum
+
+//删
+CREATE PROCEDURE DelRoom
+	@roomnum varchar(50)
+AS
+	DELETE FROM ROOM
+	WHERE room_num=@roomnum
+
+
+guest 表
+
+
+CREATE PROCEDURE GetGuestInfo
+@Param varchar(50)
+AS
+		SELECT sex,mobile,room_id
+		FROM guest 
+		WHERE guest_name=@Param
+		
+
+CREATE PROCEDURE InsertGuest
+	@guestname varchar(50),
+	@Sex char(5),
+	@Mobile char(11),
+	@roomid int
+AS
+	INSERT INTO guest(guest_name,sex,mobile,room_id)
+	VALUES(@guestname,@Sex,@Mobile,@roomid)
+	
+CREATE PROCEDURE UpdateGuest
+  @guestname varchar(50),
+  @Sex char(5),
+	@Mobile char(11),
+	@roomid int
+AS
+	UPDATE guest
+	SET sex=@Sex,mobile=@Mobile,room_id=@roomid
+	WHERE guest_name=@guestname
+	
+	
+CREATE PROCEDURE DelRoom
+	@guestname varchar(50)
+AS
+	DELETE FROM guest
+	WHERE guest_name=@guestname
+
+roomType 表
+
+
+CREATE PROCEDURE GetTypeInfo
+@Param varchar(50)
+AS
+		SELECT type_price
+		FROM roomType
+		WHERE type_name=@Param
+
+
+CREATE PROCEDURE InsertType
+	@typename varchar(50),
+	@typeprice varchar(50)
+AS
+	INSERT INTO roomType(type_name,type_price)
+	VALUES(@typename,@typeprice)
+
+	
+CREATE PROCEDURE UpdateType
+	@typename varchar(50),
+	@typeprice varchar(50)
+AS
+	UPDATE roomType
+	SET type_price=@typeprice
+	WHERE type_name=@typename
+
+CREATE PROCEDURE DelType
+	@typename varchar(50)
+AS
+	DELETE FROM roomType
+	WHERE type_name=@typename

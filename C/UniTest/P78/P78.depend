@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1305275050 source:/home/sigmax6/Documents/Workspace/sigmav/C/UniTest/p78DelSpace.c
+	<stdio.h>
+	<string.h>
+

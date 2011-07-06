@@ -1,0 +1,221 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>mymenu</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>mymenu</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>866</width>
+            <height>648</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>menu</string>
+    </property>
+    <widget class="QLineEdit">
+        <property name="name">
+            <cstring>dishid</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>300</x>
+                <y>20</y>
+                <width>170</width>
+                <height>22</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>querybutton</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>570</x>
+                <y>20</y>
+                <width>95</width>
+                <height>27</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>query</string>
+        </property>
+    </widget>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>230</x>
+                <y>60</y>
+                <width>620</width>
+                <height>460</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>dish detail</string>
+        </property>
+        <widget class="QDataTable">
+            <column>
+                <property name="text">
+                    <string>Name</string>
+                </property>
+                <property name="field">
+                    <string>name</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Source</string>
+                </property>
+                <property name="field">
+                    <string>source</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Intergrent</string>
+                </property>
+                <property name="field">
+                    <string>intergrent</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Price</string>
+                </property>
+                <property name="field">
+                    <string>price</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>dataTable2</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>40</y>
+                    <width>620</width>
+                    <height>80</height>
+                </rect>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+            <property name="sorting">
+                <bool>true</bool>
+            </property>
+            <property name="autoEdit">
+                <bool>true</bool>
+            </property>
+            <property name="filter">
+                <string>id=1</string>
+            </property>
+            <property name="database" stdset="0">
+                <stringlist>
+                    <string>myconn</string>
+                    <string>mymenu</string>
+                </stringlist>
+            </property>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>textLabel1</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>100</x>
+                    <y>120</y>
+                    <width>460</width>
+                    <height>330</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string></string>
+            </property>
+            <property name="pixmap">
+                <pixmap>1.jpg</pixmap>
+            </property>
+        </widget>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>orderbutton</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>480</x>
+                <y>570</y>
+                <width>95</width>
+                <height>27</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>order</string>
+        </property>
+    </widget>
+    <widget class="QDataTable">
+        <column>
+            <property name="text">
+                <string>Name</string>
+            </property>
+            <property name="field">
+                <string>name</string>
+            </property>
+        </column>
+        <property name="name">
+            <cstring>dataTable1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>210</width>
+                <height>640</height>
+            </rect>
+        </property>
+        <property name="readOnly">
+            <bool>true</bool>
+        </property>
+        <property name="sorting">
+            <bool>true</bool>
+        </property>
+        <property name="autoEdit">
+            <bool>true</bool>
+        </property>
+        <property name="database" stdset="0">
+            <stringlist>
+                <string>myconn</string>
+                <string>mymenu</string>
+            </stringlist>
+        </property>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>querybutton</sender>
+        <signal>clicked()</signal>
+        <receiver>mymenu</receiver>
+        <slot>querypressed()</slot>
+    </connection>
+    <connection>
+        <sender>orderbutton</sender>
+        <signal>clicked()</signal>
+        <receiver>mymenu</receiver>
+        <slot>orderpressed()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">mymenu.ui.h</include>
+</includes>
+<slots>
+    <slot>querypressed()</slot>
+    <slot>orderpressed()</slot>
+</slots>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include <sqlca.h>
+
+#define NAME_LEN 20
+#define PASS_LEN 20
+#define DBNA_LEN 20
+extern sqlglm(char *,int *,int *);
+
+void connect();
+void sql();
+void sql_error();
+void main()
+{
+    EXEC SQL WHENEVER SQLERROR DO sql_error();
+    EXEC SQL WHENEVER NOT FOUND DO sql_error();
+    connect();
+    sql();
+    EXEC SQL COMMIT RELEASE;
+}
+
+void connect()
+{
+   // VARCHAR 
+    char username[NAME_LEN],password[PASS_LEN],database[DBNA_LEN];
+    strncpy((char *)username,"scott",NAME_LEN);
+   // username.len=5;
+    strncpy((char *)password,"hotel000",PASS_LEN);
+   // password.len=8;
+    strncpy((char *)database,"hotelDB",DBNA_LEN);
+   // database.len=7;
+    EXEC SQL CONNECT :username IDENTIFIED BY :password USING :database;
+//    EXEC SQL CONNECT 'scott' IDENTIFIED BY 'hotel000' USING 'hotelDB';// USING :database;
+    if(sqlca.sqlcode==0)
+        printf("连接成功!\n");
+    else
+    {
+        printf("连接失败!\n");
+    }
+}
+
+void sql_error()
+{
+    char msg[200];
+    size_t buf_len,msg_len;
+    buf_len =sizeof(msg);
+    sqlglm(msg,&buf_len,&msg_len);
+    if(msg_len>buf_len)
+        msg_len=buf_len;
+    printf("%.*s\n\n",msg_len,msg);
+}
+
+void sql()
+{
+    int typeId;
+    char typeName[10],typePrice[20];
+    printf("请输入类型ID：");
+    scanf("%d",&typeId);
+    fflush(stdin);
+    EXEC SQL SELECT TYPE_NAME,TYPE_PRICE INTO :typeName,:typePrice FROM roomtype WHERE TYPE_ID=:typeId;
+    if(sqlca.sqlcode==0)
+        printf("类型名：%s,价格:%s\n",typeName,typePrice);
+}

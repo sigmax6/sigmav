@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include <sqlca.h>
+void sql_error();
+void main()
+{
+    char username[10],password[10],server[10];
+    int typeNo;
+    char typeName[40],typePrice[40];
+   // printf("请输入用户名：");
+   // gets(username);
+   // printf("请输入密码：");
+   // gets(password);
+   // printf("请输入网络连接名：");
+   // gets(server);
+   strcpy(username,"scott");
+   strcpy(password,"hotel000");
+   strcpy(server,"hotelDB");
+    EXEC SQL WHENEVER SQLERROR DO sql_error();
+    EXEC SQL WHENEVER NOT FOUND DO sql_error();
+    EXEC SQL CONNECT :username IDENTIFIED BY :password USING :server ;
+    if(sqlca.sqlcode==0)
+     {
+         printf("连接成功\n");
+         printf("请输入类型号:");
+         scanf("%d",&typeNo);
+         fflush(stdin);
+         EXEC SQL SELECT TYPE_NAME,TYPE_PRICE INTO :typeName , :typePrice FROM SCOTT.ROOMTYPE WHERE TYPE_ID=:typeNo;
+         if(sqlca.sqlcode==0)
+             printf("房间类型:%s,价位:%s",typeName,typePrice);
+         else
+             printf("查询失败");
+     }
+    else
+        printf("连接失败\n");
+    EXEC SQL COMMIT RELEASE;
+    exit(0);
+}
+
+void sql_error()
+{
+    EXEC SQL WHENEVER SQLERROR CONTINUE;
+    printf("错误!\n");
+    printf("%.70s\n",sqlca.sqlerrm.sqlerrmc);
+}

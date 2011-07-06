@@ -1,0 +1,12 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560305498
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560311184
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560311313
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560314135
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560325304
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560405271
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560406930
+closed,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560414393
+stopped,bundle,org.eclipse.cdt.debug.mi.ui,6.0.0.200906161748,"org.eclipse.cdt.debug.mi.ui",1257560415269
+stopped,bundle,com.trolltech.qtcppproject,1.5.2,"com.trolltech.qtcppproject",1257560415269
+stopped,bundle,org.eclipse.cdt.debug.mi.core,6.0.0.200906161748,"org.eclipse.cdt.debug.mi.core",1257560415300

@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dazj.png</file>
+        <file>djly.png</file>
+        <file>lkjc.png</file>
+        <file>sbj.png</file>
+        <file>srfssb.png</file>
+        <file>xglc.png</file>
+        <file>zgdxj.png</file>
+        <file>zlhgr.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=An Example Program
+Exec=led
+Icon=Games
+Type=Application
+Name=led

@@ -1,0 +1,5 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1258688544772
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1258688546632
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1258688547909
+closed,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1258688549678

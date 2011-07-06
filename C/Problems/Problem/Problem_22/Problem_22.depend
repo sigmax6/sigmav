@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1268571811 source:/home/sigmax6/Documents/C/Problem_22/main.c
+	<stdio.h>
+
+1268668370 source:/home/sigmax6/Documents/C/Problem_22/main2_copy.c
+	<conio.h>
+	<stdio.h>
+

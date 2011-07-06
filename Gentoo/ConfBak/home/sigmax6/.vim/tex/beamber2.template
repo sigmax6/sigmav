@@ -1,0 +1,49 @@
+\documentclass{beamer}
+%-------------------------------------------------------------------------------------------------------
+\usetheme{Warsaw}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%------------------------------------------------------------------------------------------------------
+\usepackage{xltxtra,fontspec,xunicode}    %这里使用xetex相应的宏包
+\usepackage{zhfont}                       %这里调用zhspacing
+\zhspacing
+%------------------------------------------------------------------------------------------------------
+\usepackage{hyperref}
+\usepackage{lettrine}                     %首字下沉
+%------------------------------------------------------------------------------------------------------
+\setzhmainfont[BoldFont=LiHei Pro]{Microsoft YaHei}%这里设置中文粗体和普通字体
+%\setmainfont{TeX Gyre Pagella}           %这里设置英文衬线字体
+\setmainfont{CMU Serif}
+\setmonofont{Monaco}                     %英文等宽字体
+\setsansfont{Lucida Grande}               %英文无衬线字体
+%-------------------------------------------------------------------------------------------------------
+
+\begin{document}
+\XeTeXlinebreaklocale "zh"  % 表示用中文的断行
+\XeTeXlinebreakskip = 0pt plus 1pt % 多一点调整的空间
+
+\title{<{}>}
+\author{<{}>}
+\institute{<{}>}
+\date{\today}
+\frame{\titlepage}
+%%-------------------------------------------------
+\maketitle
+%\compressedtitle
+% You can use \maketitle to create the titlepage,
+    % or \compressedtitle to create a more compact titlepage
+    % with the look of the other pages in compress style
+
+    % \begin{frame}
+    %   \titlepage
+    % \end{frame}
+    % Or you can call the titlepage command in a frame environment
+\begin{frame}<beamer>
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+\begin{frame}\frametitle{<{}>}
+<{}>
+\end{frame}
+\end{document}
+

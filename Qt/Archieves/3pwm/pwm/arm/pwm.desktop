@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=An Example Program
+Exec=pwm
+Icon=Games
+Type=Application
+Name=pwm

@@ -1,0 +1,102 @@
+<!DOCTYPE UI><UI>
+<class>hello</class>
+<widget>
+    <class>QWidget</class>
+    <property stdset="1">
+        <name>name</name>
+        <cstring>hello</cstring>
+    </property>
+    <property stdset="1">
+        <name>geometry</name>
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>592</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property stdset="1">
+        <name>caption</name>
+        <string>HelloWorldForm</string>
+    </property>
+    <property stdset="1">
+        <name>focusPolicy</name>
+        <enum>TabFocus</enum>
+    </property>
+    <widget>
+        <class>QPushButton</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>CloseButton</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>260</x>
+                <y>330</y>
+                <width>110</width>
+                <height>30</height>
+            </rect>
+        </property>
+        <property stdset="1">
+            <name>text</name>
+            <string>CloseButton</string>
+        </property>
+    </widget>
+    <widget>
+        <class>QLabel</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>user_text</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>190</x>
+                <y>190</y>
+                <width>261</width>
+                <height>81</height>
+            </rect>
+        </property>
+        <property stdset="1">
+            <name>text</name>
+            <string></string>
+        </property>
+    </widget>
+    <widget>
+        <class>QPushButton</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>UserButton</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>240</x>
+                <y>90</y>
+                <width>171</width>
+                <height>51</height>
+            </rect>
+        </property>
+        <property stdset="1">
+            <name>text</name>
+            <string>User Button</string>
+        </property>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>UserButton</sender>
+        <signal>clicked()</signal>
+        <receiver>hello</receiver>
+        <slot>user_button()</slot>
+    </connection>
+    <connection>
+        <sender>CloseButton</sender>
+        <signal>clicked()</signal>
+        <receiver>hello</receiver>
+        <slot>close()</slot>
+    </connection>
+    <slot access="public">user_button()</slot>
+</connections>
+</UI>

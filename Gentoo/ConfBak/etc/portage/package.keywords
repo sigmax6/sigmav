@@ -1,0 +1,28 @@
+media-fonts/wqy-bitmapfont ~amd64
+media-fonts/cjkuni-fonts ~amd64
+media-fonts/acroread-asianfonts ~amd64
+app-admin/conkyforecast ~amd64
+gnome-extra/avant-window-navigator ~amd64
+app-laptop/tp_smapi ~amd64
+app-laptop/hdaps-gl ~amd64
+app-i18n/zhcon ~amd64
+www-plugins/adobe-flash ~amd64
+net-misc/flashget ~amd64
+xfce-extra/xfce4-gvfs-mount ~amd64
+www-plugins/google-talkplugin ~amd64
+www-plugins/googleearth ~amd64
+sci-geosciences/googleearth ~amd64
+dev-util/patchelf ~amd64
+sys-apps/openrc ~amd64
+>=sys-apps/baselayout-2.0.0 ~amd64
+cross-sparc-unknown-linux-gnu/binutils sparc -amd64 -~amd64
+cross-sparc-unknown-linux-gnu/gcc sparc -amd64 -~amd64
+cross-sparc-unknown-linux-gnu/linux-headers sparc -amd64 -~amd64
+cross-sparc-unknown-linux-gnu/glibc sparc -amd64 -~amd64
+cross-sparc-unknown-linux-gnu/gdb sparc ~sparc -amd64 -~amd64
+cross-sparc-unknown-linux-gnu/insight sparc ~sparc -amd64 -~amd64
+cross-sparc-unknown-elf/binutils sparc ~sparc -amd64 -~amd64
+cross-sparc-unknown-elf/gcc sparc ~sparc -amd64 -~amd64
+cross-sparc-unknown-elf/newlib sparc ~sparc -amd64 -~amd64
+cross-sparc-unknown-elf/gdb sparc ~sparc -amd64 -~amd64
+cross-sparc-unknown-elf/insight sparc ~sparc -amd64 -~amd64

@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+arch,sysinfo,,,"x86",1258688542630
+ws,sysinfo,,,"gtk",1258688542630
+locale,sysinfo,,,"en_US",1258688542630
+processors,sysinfo,,,"2",1258688542631
+java.runtime.name,sysinfo,,,"OpenJDK Runtime Environment",1258688542631
+java.runtime.version,sysinfo,,,"1.6.0_0-b16",1258688542631
+java.specification.name,sysinfo,,,"Java Platform API Specification",1258688542631
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1258688542631
+java.specification.version,sysinfo,,,"1.6",1258688542631
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1258688542631
+java.version,sysinfo,,,"1.6.0_0",1258688542631
+java.vm.info,sysinfo,,,"mixed mode, sharing",1258688542631
+java.vm.name,sysinfo,,,"OpenJDK Client VM",1258688542631
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1258688542631
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1258688542631
+java.vm.specification.version,sysinfo,,,"1.0",1258688542631
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1258688542631
+java.vm.version,sysinfo,,,"14.0-b16",1258688542631
+started,bundle,org.eclipse.mylyn.team.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.team.ui",1258688542645
+started,bundle,org.eclipse.update.scheduler,3.2.200.v20081127,"org.eclipse.update.scheduler",1258688542647
+started,bundle,org.eclipse.update.core,3.2.300.v20090525,"org.eclipse.update.core",1258688542737
+started,bundle,com.trolltech.qtcppproject,1.5.2,"com.trolltech.qtcppproject",1258688542750
+started,bundle,org.eclipse.debug.core,3.5.0.v20090526-1600,"org.eclipse.debug.core",1258688542862
+started,bundle,org.eclipse.mylyn.monitor.ui,3.2.0.v20090617-0100-e3x,"org.eclipse.mylyn.monitor.ui",1258688542944
+started,bundle,org.eclipse.epp.usagedata.ui,1.1.0.R200906100410,"org.eclipse.epp.usagedata.ui",1258688543700

@@ -1,0 +1,232 @@
+//Code by Li Feixiang 20100724 ver 1.0
+//Modified by Sigmax6 20100725 ver 1.1
+//Modified by Sigmax6 20100726 ver 1.2
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include <sqlca.h>
+
+#define MAX 200                  //The MAX number of rooms
+
+EXEC SQL BEGIN DECLARE SECTION;  //DECLAER SECTION--------------------------
+struct roominfo_struct
+{
+    char roomnumber[50];
+    char roomtype[50];
+    char roomprice[50];
+    char roomstate[50];
+}ris[MAX];
+
+    VARCHAR username[20];
+    VARCHAR password[20];
+    VARCHAR server[20];
+    int count;
+    int operate;
+    char roomnum[30];
+    char roomstate[30];
+    char roomtype[30];
+    char roomprice[30];
+
+    char guestname[20];
+    char guestsex[10];
+    char mobile[11];
+    int roomid;
+    int guestid;
+    VARCHAR arrivetime[20];
+EXEC SQL END DECLARE SECTION;   //END DECLAER SECTION ----------------------
+
+//Functions to use
+void getRoomInfo();
+void getRoomDetile();
+void checkIn();
+void checkOut();
+void checkGuestInfo();
+void sqlError();
+
+int main()
+{
+    //REG　THE ERROR HANDLE
+    EXEC SQL WHENEVER SQLERROR DO sqlError();
+    EXEC SQL WHENEVER NOT FOUND DO sqlError();
+
+    //CONNECT---------------------------------
+    strcpy(username.arr,"scott");
+    username.len=strlen(username.arr);
+    strcpy(password.arr,"hotel000");
+    password.len=strlen(password.arr);
+    strcpy(server.arr,"hotelDB");
+    server.len=strlen(server.arr);
+    EXEC SQL CONNECT :username IDENTIFIED BY :password USING :server ;
+    system("clear");
+    if(sqlca.sqlcode==0)
+    {
+        printf("连接数据库成功！\n");
+    }
+    else
+    {
+        printf("连接失败，程序退出\n");
+        exit(1);
+    }
+    //END CONNECT -----------------------------
+
+    //MAIN FUNC OF THE SYSTEM------------------
+    
+    printf("=================SIGMA 酒店管理系统 0708==================\n\n");
+    while(1)
+    {
+	printf("****************请选择功能*****************\n");
+	printf("                                         \n");
+	printf("              1.查看酒店状态                \n");
+	printf("              2.查看房间信息                \n");
+	printf("              3.客户入住                   \n");
+	printf("              4.客户退房                   \n");
+	printf("              5.客户信息管理                \n");
+	printf("              6.退出管理系统                \n");
+    printf("                                         \n");
+	printf("*****************************************\n");
+	printf("请输入操作指令：");
+	scanf("%d",&operate);
+        switch(operate)
+		{
+			case 1:
+				getRoomInfo();
+				break;
+			case 2:
+				getRoomDetile();
+				break;
+			case 3:
+				checkIn();
+				break;
+			case 4:
+				checkOut();
+				break;
+			case 5:
+                checkGuestInfo();
+				break;
+            case 6:
+				break;
+			default:
+				printf("选择错误，请选择1－6操作！\n");
+				break;
+		}
+	if(operate==6)
+	    break;
+     }
+     EXEC SQL COMMIT RELEASE;
+     printf("退出登录！\n");   
+}
+
+void getRoomInfo()
+{
+    system("clear");
+    EXEC SQL SELECT * INTO :ris FROM SCOTT.ROOMINFO;
+    printf("房间号       ｜ 房间类型          ｜房间价格        ｜房间状态\n");
+    for(count=0;count<sqlca.sqlerrd[2];count++)
+    {
+       printf("%.10s,%.10s,%.10s,%.10s\n",ris[count].roomnumber,ris[count].roomtype,ris[count].roomprice,ris[count].roomstate);
+    }
+}
+
+void getRoomDetile()
+{
+    printf("请输入要查询的房间号:");
+    scanf("%s",roomnum);
+    system("clear");
+    EXEC SQL EXECUTE
+     BEGIN
+      SCOTT.PROCED_ROOM_INFO(:roomnum,:roomtype,:roomprice,:roomstate);
+     END;
+    END-EXEC;
+    printf("房间信息:房间号       ｜ 房间类型          ｜房间价格        ｜房间状态\n");
+    printf("%s,%s,%s,%s\n",roomnum,roomtype,roomprice,roomstate);
+}
+
+void checkIn()
+{
+    printf("请依次输入登记的用户名、性别、电话、房间号(之间用空格逗号分开))\n");
+    scanf("%s,%s,%s,%d",guestname,guestsex,mobile,&roomid);
+    system("clear");
+    EXEC SQL EXECUTE
+     BEGIN
+      SCOTT.PROCED_CHECKIN(:guestname,:guestsex,:mobile,:roomid);
+     END;
+    END-EXEC;
+    printf("用户登记成功！\n");
+}
+
+void checkOut()
+{
+    int account;
+    printf("请输入要结帐的用户的编号：");
+    scanf("%d",&guestid);
+    EXEC SQL EXECUTE
+     BEGIN
+      SCOTT.PROCED_CHECKOUT(:guestid,:account);
+     END;
+    END-EXEC;
+    printf("住房总金额为：%d",account);
+    printf("正在删除用户信息.......");
+    EXEC SQL EXECUTE
+     BEGIN
+      SCOTT.PROCED_DELETE_GUEST(:guestid);
+     END;
+    END-EXEC;
+    printf("删除成功！");
+    return;
+}
+
+void checkGuestInfo()
+{
+    char ch='n';
+    printf("请输入要更新客户的编号：");
+    scanf("%d",&guestid);
+    EXEC SQL SELECT GUEST_NAME,SEX,MOBILE,ROOM_ID,ARRIVE_TIME INTO :guestname,:guestsex,:mobile,:roomid,:arrivetime FROM GUEST WHERE GUEST_ID=:guestid;
+    printf("更新客户名吗？y/n");
+    scanf("%c",&ch);
+    if(ch=='y')
+    {
+        printf("请输入新的客户名：");
+        scanf("%s",guestname);
+        ch='n';
+    }
+    printf("更新客户性别吗？y/n");
+    scanf("%c",&ch);
+    if(ch=='y')
+    {
+        printf("请输入新的客户性别：");
+        scanf("%s",guestsex);
+        ch='n';
+    }
+    printf("更新客户联系方式吗？y/n");
+    scanf("%c",&ch);
+    if(ch=='y')
+    {
+        printf("请输入新的客户联系方式：");
+        scanf("%s",mobile);
+        ch='n';
+    }
+    printf("更改客户房间号？y/n");
+    scanf("%c",&ch);
+    if(ch=='y')
+    {
+        printf("请输入新的客户房间号：");
+        scanf("%d",&roomid);
+        ch='n';
+    }
+    EXEC SQL EXECUTE
+     BEGIN
+      SCOTT.PROCED_MODIFY_GUEST(:guestid,:guestname,:guestsex,:mobile,:roomid,:arrivetime);
+     END;
+    END-EXEC;
+    printf("信息更新成功！");
+    return;
+}
+
+void sqlError()
+{
+    EXEC SQL WHENEVER SQLERROR CONTINUE;
+    printf("错误!\n");
+    printf("%.70s\n",sqlca.sqlerrm.sqlerrmc);
+}

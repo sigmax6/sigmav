@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1268894928 source:/mnt/files/Sigmax6/Documents/C/ct_49/main.c
+	<stdio.h>
+
+1268895253 source:/mnt/files/Sigmax6/Documents/C/ct_49/main_cp1.c
+	<stdio.h>
+	<stdlib.h>
+

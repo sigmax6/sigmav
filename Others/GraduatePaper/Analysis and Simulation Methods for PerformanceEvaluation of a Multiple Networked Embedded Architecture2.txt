@@ -1,0 +1,1537 @@
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 49, NO. 6, DECEMBER 2002 
+
+Analysis and Simulation Methods for Performance 
+
+Evaluation of a Multiple Networked 
+Embedded Architecture 
+
+
+Paolo Castelpietra, Ye-Qiong Song, Françoise Simonot-Lion, and Mondher Attia 
+
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 49, NO. 6, DECEMBER 2002 
+
+Analysis and Simulation Methods for Performance 
+
+Evaluation of a Multiple Networked 
+Embedded Architecture 
+
+
+Paolo Castelpietra, Ye-Qiong Song, Françoise Simonot-Lion, and Mondher Attia 
+==========================================
+Abstract—This paper deals with the modeling and the validation 
+摘要： 本文主要讨论了应用于车载应用的多网络嵌入式计算机系统
+of multiple networked embedded computer systems supporting 
+的建模和验证方法。
+in-vehicle applications. In this context, we developed a modular 
+在本文中，我们设计了
+modeling and simulation technique. This approach allowed the 
+一种模块化的建模和仿真技术。这种方法使
+development of reusable component models with clearly defined 
+我们能够设计出拥有清晰定义接口的可重用模型元件。
+interfaces. The building of a whole application model is then 
+整个应用模型的设计又
+obtained by the integration of these components, so that model 
+通过这些元件的整合集成得以实现，这样使针对模型
+construction and result analysis are made easy. In fact, thanks to 
+的结构和结果分析变得容易。事实上，
+the formal definition of components, interfaces, and composition 
+得益于这些元件、接口和集成原则的定义，
+rules, this step is automatically achieved. In the context of the 
+CAROSSE project, we implemented this methodology in the 
+我们将这种方法应用于Carosses-Perf工具中。
+Carosse-Perf tool. Herein, we will detail the methodology together 
+鉴于此，我们将会对这些基本元件和接口的设计方法同其建模原则、合成定义
+with its modeling principles and the resulting definition of basic 
+一起进行详细的描述。
+components and interfaces. Finally, we will apply it to a case study 
+最后，我们会将其应用于一个
+drawn from a PSA Peugeot-Citroën application. 
+从PSA Peugeot-Citroën 应用中剥离出来的实例中以进行实例分析。 
+
+======================================================================
+Index Terms—Computer network performance, local area 
+
+networks, real-time systems, road vehicle electronics, simulation 
+software. 
+
+I. INTRODUCTION 
+T
+T
+ODAY’S car manufacturers integrate more and more 
+当今的汽车制造工业中越来越多的
+microcontroller-based electronic component units (ECUs) 
+集成了基于微控制器的电子元器件单元
+in their cars in order to improve safety, performance, comfort, 
+来增加产品的安全性、性能、舒适度
+and to meet the more and more restrictive pollution standards. 
+和适应愈发严格的环保指标。
+These ECUs are interconnected using different networks such 
+这些电子元器件单元是通过不同的网络相互连接的，
+as Controller Area network (CAN) [1], [2], Vehicle Area 
+例如:控制器空间网络（CAN） 载具局域网络(VAN)
+Network (VAN) [3], [4], Time Triggered Protocol (TTP) [5], 
+定时触发协议(TTP) 等。
+J1850 [6], etc. 
+
+Since real-time and dependability constraints are omnipresent 
+由于在此种分布式计算机控制系统中，实时性和可靠性的约束是
+in such a distributed computer control system, main 
+无处不在的，
+problems for a designer of new architectures are their validation 
+对于一个新构架的设计者而言，最主要的问题是它们的验证(使满足约束条件)
+(meeting of the constraints) and optimization according to 
+和针对特定标准的优化。
+specified criteria. This task is traditionally ensured by taking 
+这项任务传统上讲是通过原型机验证来得以实现的。
+measurements on a prototype. However, with the continuing 
+然而，出于对营销时间的持续缩短和降低设计成本的考虑
+shortening of time to market and the determination to reduce 
+the design costs, a software-based validation tool is preferable. 
+，一个基于软件的验证工具是上佳之选。
+
+The first way of doing this is analytically, but this means 
+one should be able to establish an analytical model [7], [8]. 
+这种方法的第一步是进行分析，但这就意味着要能建立一个分析模型。
+
+【Manuscript received April 5, 2001; revised July 13, 2001, September 10, 
+2001, and November 5, 2001. Abstract published on the Internet September 
+13, 2002. This work was supported by the French National Research program 
+PREDIT 2 (1998–2000) under Grant 033. Partners are: LORIA, LIP6, and PSA 
+Peugeot-Citröen.】 
+
+【P. Castelpietra, Y.-Q. Song, and F. Simonot-Lion are with the LORIA French 
+Research Laboratory in Computer Science, F-54516 Vandoeuvre-lès-Nancy, 
+France (e-mail: castelpi@loria.fr; song@loria.fr; simonot@loria.fr). 
+M. Attia is with the DRIA/SARA, PSA Peugeot-Citroën, F-78943 Vélizy-
+Villacoublay, France (e-mail: ma22@psinet.fr). 
+Digital Object Identifier 10.1109/TIE.2002.804972 】
+
+Considering the complexity of a real embedded system, such 
+考虑到真实嵌入式系统的复杂性，
+a model will necessarily be strongly simplified and will only 
+这样一个模型必须进行有力的简化并
+provide oversized solutions. For instance, the holistic scheduling 
+只提供宏观的解决方案。
+approach as well as VOLCANO tool [9] introduced by 
+例如，由Tindell和Clark带来的整体调度方法也就是VOLCANO工具
+Tindell and Clark [10] only allows us to evaluate the worst case 
+只能仿真分布式周期任务最坏情况下端到端的应答时间。
+end-to-end response time of distributed periodic tasks. Using 
+this holistic scheduling approach, Song et al. [11] studied the 
+Song et al使用这种整体调度方法研究了
+end-to-end task response time for an architecture composed of 
+一种由多个ECU组成、通过CAN相互连接的体系结构的端到端任务应答时间。
+several ECUs, interconnected by CAN. The same system using 
+对同样的系统使用基于仿真的分析方式进行研究给出了更加现实的
+simulation-based analysis has also been studied giving more realistic 
+performance measures [12]. 
+性能度量。
+
+A priori simulation approach, adopted in the CAROSSE 
+一个在CAROSSE项目中早期的仿真方法
+project, is a validation technique complementary to the analytic 
+是对分析方法的技术性补充。
+one. The direct use of the general-purpose simulation platform 
+直接使用多功能仿真平台(例如SES工作台)对于
+(SES Workbench,1 for example) is not judged suitable by 
+车载嵌入式系统设计者而言感觉是不太适合的，因为
+in-vehicle embedded system designers since too much effort 
+这需要在搭建仿真模型上花费很多精力。
+must be made in building the simulation model. In collaboration 
+通过与
+with PSA Peugoet-Citroën (carmaker) we specified a modeling 
+PSA Peugoet-Citroën(汽车制造商),我们选定了一种
+methodology based on the modularity, where a certain number 
+基于定义好基本元件行为与相互作用的模块化建模方法。
+of basic components, their behavior and their interactions were 
+defined. This methodology has been implemented through the 
+这种方法通过建立Carosse-Perf仿真工具得以实现。
+development of a simulation tool called Carosse-Perf. It is 
+composed, on the one hand, of a library of prebuilt component 
+它一方面由为SES仿真工作平台预编译好的单元模型库组成，
+models for the SES Workbench simulation platform and, on the 
+other hand, of a constructor that uses these models to obtain the 
+另一方面,也包含一个用这些模型实现预仿真的整个模型的构建器。
+whole model that will be simulated. This tool allows designers 
+这个工具使设计者
+to easily build a simulation model of their new in-vehicle 
+可以方便的为他们的新车载嵌入式系统构建一个仿真模型
+embedded systems and then to validate them. The validation
+。对这个系统的验证是通过检验对不同时序约束的实现程度来判断的。
+is performed by verifying the meeting of the different time 
+constraints. 
+
+Although the approach is quite general, the module decomposition 
+虽然这种方法只能得到大体的结果，
+is specific to embedded architectures where the behavior 
+这种模型的分解是在假定该嵌入式结构上的软件程序行为已经广为人知的情况下进行的。
+of the software applications is assumed to be well known. This 
+is why the Carosse-Perf tool can only be used to model and simulate 
+这是Carosse-Perf工具只能用于建模和仿真嵌入式程序的原因。
+embedded applications. 
+
+The remainder of this paper is organized as follows. 
+下文是按照如下结构组织的：
+Section II details the CAROSSE modular approach and 
+第二章详细介绍了CAROSSE建模方法，
+Section III describes the Carosse-Perf tool. Section IV presents 
+第三章描诉了Carosse-Perf工具。第四章展示了一个
+a case study, where the model is automatically generated using 
+实例研究，该实例中模型是由Carosse-Perf工具自动生成的。
+the Carosse-Perf tool. Finally, we conclude in Section V. 
+最终，我们会在第五章中总结结论。
+
+II. CAROSSE METHODOLOGY 
+第二章、CAROSSE 建模方法论
+We call operational architecture the result of the mapping 
+我们将一个"软件结构"向"硬件结构"的映射结果称为"可操作结构"。
+of one software architecture onto one hardware architecture 
+
+
+【1】SES Workbench is a product of HyPerformix Inc. (http://www.hyperformix.
+com). 
+
+
+
+Fig. 1. Operational architecture. 
+图1 . 可操作结构
+
+(Fig. 1). The proposed approach takes into account two requirements 
+按照这种计划的方法，会为设计流程带来两个需求。
+in the design process. First, it must provide an easy way 
+首先，它必须提供一个简洁的方法
+to evaluate different hardware architectures (different components, 
+来评估不同的硬件结构（不同的元件，
+different topologies) as well as different mappings and 
+不同的布局）、不同的映射方式和针对给定硬件结构的软件结构配置。
+configurations of the software architecture onto a given hardware 
+architecture; in other words, different operational architectures. 
+换句话说，就是不同的“可操作结构”。
+That is why we divide the model in two parts: on the 
+这就是我们将这个模型分成两部分的原因，一方面，
+one hand, the “hardware architecture” is the simulated model, 
+“硬件结构”是被仿真的模块。
+whereas, on the other hand, the “software architecture” specifies 
+反之，另一方面，“软件结构”指定了对预先定义的模型的激励。
+the stimuli of the previous model. The software architecture 
+该“软件结构”模型会分离到本地软件结构中
+model is then “split up” into local software architectures 
+and then “injected” toward the hardware architecture model to 
+随后“注入”到硬件模型中为其提供能动性。
+animate it. Notice that the hardware architecture is also reactive 
+注意硬件结构也是对环境激励的一种反应机制。
+to environment stimuli. 
+
+Secondly, for model reusability considerations, the hardware 
+其次，出于对模型重用性的考虑，硬件结构
+architecture model has to be as modular as possible; this will
+模型必须尽量的模块化；这使得对于模型某一部分的改变
+enable changing one part of the model without altering it completely. 
+不会引起对整个模型的修改。
+Therefore, we decomposed it into several modules that 
+因此，我们将它分解为几个对于性能评估来说比较恰当且互相独立的模型
+we considered pertinent for performance evaluation and independent, 
+on the basis of our know-how of in-vehicle embedded 
+这是建立在我们对于车载嵌入式程序的实际知识的基础上的。
+applications (Fig. 2). 
+
+We assume that the modules only communicate by means of 
+我们假设模型仅通过指定形式的数据进行通讯，
+formally specified data that are realized as transactions in SES 
+这些数据在SES抽象平台上被形式化为事务操作。
+Workbench formalism. Below we detail the model modularity 
+下文中我们详述了模型的模块化概念。
+concept (classes of model components, composition of components) 
+as well as the modeling and simulation process supported 
+by the Carosse-Perf tool. 
+，以及由卡罗斯性能工具支持的建模与仿真的过程。
+
+A. Modeling Principles 
+1) Hardware Architecture Model: As shown in Fig. 2, the 
+“hardware architecture” is composed of several nodes and one 
+or more networks. Each node represents a calculator and is decomposed 
+into modules. 
+A.模型化原则
+1) 硬件体系结构模型： 如图所示，在图 2 中，硬件体系结构由多个节点及一个或多个网络组成。每个节点表示一个计算单元并分解为模块。
+• 
+Executor and microprocessor represent together the server 
+for executing sequences of instructions. While the microprocessor 
+module manages temporal aspects, the executor 
+module focuses on effects; this allows us to model and 
+simulate the code executed by a task at two precision levels: 
+either modeling the architecture of the microcontroller 
+and taking into account the real instruction sequence to be 
+executed [15] or using an abstraction of task code expressed 
+in terms of delays depending on processor power [16]. 
+1) 硬件体系结构模型： 如图所示，在图 2 中，硬件体系结构由多个节点及一个或多个网络组成。每个节点表示一个计算单元并分解为模块。执行器和微处理器组成服务器以执行的指令序列。微处理器模块负责管理时间方面，执行模块着重于执行效果 ；这使得我们可以在两种不同精度下建模与仿真的任务代码的执行情况。 建模的微控制器体系结构并加载要执行的实际的指令序列还是使用为延迟处理而抽象化的人物代码取决于处理器的性能。
+• Operating system implementation is mostly represented 
+by scheduler, emulating the software task scheduling 
+policy, and system object manager (SOM in the following), 
+managing tasks, messages and timers throughout 
+the simulation. Moreover, I/O interface dissociates 
+operating system model from the environment model: 
+it models input and output cards other than network 
+controllers. 
+2) 操作系统的部署主要依赖于调度程序、仿真软件的任务调度策略和系统对象管理器（以下简称SOM)、 任务管理、 消息和仿真模型中计时器的使用情况。此外，I/O 接口被将操作系统模型从环境模型中分离出来：它模型了除了网络控制器以外的输入和输出设备。
+• A model of network controller represents the connection 
+of a computer on a network according to the policy implemented 
+on the modeled controller (number of buffers, 
+queues management, etc.). This module acts as an interface 
+between application model and network model. It 
+models the behavior of the homonymous physical component, 
+masking network protocol attributes to the operating 
+system model.
+3) 网络控制器模型是依据所连接网络政策而，并基于模型控制器 （数缓冲区、 队列管理等）实现的。本模块是应用程序和网络模型之间的接口。该模型实现了相应的物理单元的功能，对网络协议进行掩码以实现操作系统模型属性。 
+In Fig. 2, we grouped certain modules being part of a 
+more general entity. As an example, the more general label I/O 
+associates the I/O interface and the network controller modules. 
+ 在图 2 中，我们将模块分组为为更一般的实体类别。作为一个例子，我们使用更为普通的分类 I/O 端口将 I/O 接口和网络控制器模块互相连接。
+The physical bus module represents the physical transmission 
+medium as well as part of the MAC OSI level (Medium Access 
+Control). According to the requested level of detail, it integrates 
+properties like transmission time, arbitration, collisions, errors, 
+etc. Even though not shown in Fig. 2, several network controller 
+modules can be present at one node, each one connected to a 
+different physical bus. 
+物理总线模块提供了物理层传输媒介，以及MAC OSI 级别（介质访问控制）的一部分。根据所请求的详细信息级别，它集成了像传输时间、 仲裁、 碰撞、 错误、 等属性。虽然在图 2 中没有显示出来，几个网络控制器模块是可以连接在同一个节点上的，它们分别连接到不同的物理总线上。
+
+Fig. 2. Modularity of models. 
+
+Finally, notice that we call here “hardware architecture” both 
+hardware components (microprocessors, networks, communication 
+controllers, …) and software components (operating 
+system, middleware, communication protocols, etc.) supporting 
+the application. 
+  最后，请注意在这里我们将硬件组件（微处理器、 网络、 通讯控制器，…） 和支撑程序运行的软件组件（操作系统、 中间件、 通信协议，等等） 统称为“硬件结构”。
+
+2) Environment Model: It models behavior of the real surrounding 
+environment (from the point of view of sensors and 
+actuators), sending and receiving signals to which values can 
+be associated. To do this, it can base itself on periodical rules, 
+distribution laws or databases taken from real cases. Only one 
+single environment module, shared by all nodes, is present in the 
+whole system model. 
+2) 环境模型： 模型化实际情况下周边环境的行为（从传感器和驱动器的信号得来），发送和接收可以耦合的信号的值。为此，它可以基于周期性规则，分布规律或从真实的情况下采集的信息构成的数据库进行构建。这样的环境模块只有一个，所有其他的节点共享这个环境模型，它在整个系统模型中始终存在。
+3) Software Architecture Model: The software architecture 
+is composed of tasks (software tasks and interrupt subroutine), 
+messages and rules. For a given distribution, the set of tasks is 
+split into several subsets of software tasks where each subset 
+corresponds to a node of hardware architecture; messages are 
+assigned to networks and a set of rules controls the behavior of 
+system objects. We detail below the abstraction level that we 
+used to model the software architecture. 
+软件体系结构模型：软件体系结构是由任务（软件任务和中断子例程）、 消息和规则组成的。对于给定的分布，软件任务的任务集被分成几个子集，每个子集与相对应于一个硬件体系结构的节点 ；消息负责指派网络和一套控制系统对象行为的规则。以下我们详细的描述了用于建模软件体系结构的抽象级别。
+• 
+Task: We consider that a task is relevant to OS task 
+concept; that is, it models an entity managed by an 
+operating system. An OS task is characterized by its 
+scheduling attributes and its behavior. In the proposed 
+model, we assume that the behavior of an OS task is 
+defined by a sequence of “logical tasks.” Each “logical 
+task” has two characteristics: the effect of its execution 
+and the processor load. Effects can be a computation, 
+a message emission, an output on a IO port (given by 
+the respective keywords “calculate,” “send_message,” 
+“write_port”). 
+· 任务： 我们考虑一项任务是与操作系统任务的概念相符合的 ；也就是说，这个模型是由操作系统管理的实体。操作系统任务的特性是由它的分时调度属性和它的行为决定的。在拟议的模型中，我们假设操作系统任务的行为是由一系列"逻辑任务"组成的。每个"逻辑任务"有两个特点： 其执行效果与处理器负载。执行效果可以是一次计算、 消息发射或  IO 端口的输出 （分别通过关键字 "calculate"，"send_message"，"write_port"加以区分）。 
+• 
+Message: The second kind of entity used in a software 
+architecture model is the “message.” Obviously, a message 
+is characterized by its length and, for messages between 
+distant tasks only, by its “network attributes” (for 
+example, its priority). In a fine-grained model, messages 
+can carry real values and tasks can behave differently according 
+to these values. 
+消息： 软件体系结构模型中使用第二种实体是"消息"。显然，消息的特点是它的长度，和 只针对于远程任务消息的"网络属性"（例如，优先级）。在细粒度的模型中，消息可以携带实际的值，并且任务可以根据这些值的不同具有不同的行为。
+• 
+Behavior: Finally, a set of rules is formally defined, describing 
+the behavior of the software architecture; in other 
+words, rules model the entities synchronization mechanisms. 
+The general sense of a rule is “on occurrence of 
+a given event, execute the specified action.” The syntax 
+takes one of the following forms: 
+each period execute action, execute the action 
+at time 0, 0 
+行为： 最后，存在一套正式定义的规则，用以表述的软件体系结构的行为；换句话说， 这些规则建模了实体间的同步机制。广义的规则定义是"在给定的事件发生时，执行指定的操作"。它的语法采用下列形式之一： 
+
+period, 0 
+2*period, … 
+at date execute action, execute the action at 
+the specified date 
+on event_occurrence execute action, 
+execute the action at specified event occurrence 
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+where 
+
+periodand dateare given in time units, 
+
+event_occurrence is: 
+
+termination (task_id), the termination 
+
+of the given task 
+
+port_rx (port_id), the reception on the 
+
+given IO port 
+
+message_rx (message_id), the reception 
+
+from the network controller 
+
+actionis one of the following forms: 
+
+activate (task_id), activate the given 
+
+task, 
+
+abort (task_id), abort the given task 
+
+send (message_id), send the given message 
+
+to the network controller 
+
+write (port_id), write on the given IO port. 
+each period execute action ：在0时间，0+period 时间，0+2*period时间.... 执行指定的action 。
+at date execute action ：在指定的时间date执行操作action 
+on event_occurrence execute action : 在指定的事件event_occurrence发生时执行操作action。
+ 其中：
+ period 和 date 是按照时间格式定义的。
+event_occurrence 包含:
+termination (task_id), 指定任务的终止动作。
+port_rx (port_id), 指定IO口上的应答。
+message_rx (message_id), 网络控制器的应答。
+action 是以下格式之一:
+activate (task_id), 激活指定的任务
+abort (task_id), 中止指定的任务
+send (message_id), 向网络控制器发送指定的消息
+write (port_id), 向指定的IO口上写数据。
+
+In order to interpret any software architecture according to 
+the above-presented syntax, we introduced the System Object 
+Injector (SOI) module. It acts at zero simulation time only and 
+defines system objects (tasks, interrupt routines, timers, messages, 
+etc.) according to the part of software architecture corresponding 
+to each node. As simulation begins, the software architecture 
+objects (tasks, messages and rules) are injected in the 
+hardware architecture model by these special-purpose modules; 
+then, the SOI modules rest inactive. 
+为了能够任意软件体系结构按照上面定义语法所给出的命令，我们引入了系统对象注射器 (SOI) 模块。它只在模拟启动0时刻作用，并按照与每个节点相关联的软件体系结构部分定义系统对象 （任务、 中断例程、 计时器、 消息等）。当模拟开始时，软件体系结构的对象 （任务、 消息和规则) 向硬件体系结构模型中注入这些专用模块；然后，SOI 模块休息进入休眠状态。
+4) Transactions: Throughout a simulation, modules interact 
+and communicate by means of transactions. As shown 
+in Fig. 2, different kinds of transactions are defined. Each 
+one carries structured information (attributes). For example, 
+consider the following. 
+4) 事务处理： 在模拟过程中，所有模块之间都是相互连接并通过“事务”的方式进行通信。如图 2 所示，定义不同种类的事务。每一个都包含结构化的信息 （属性）。例如，考虑以下情况：
+• A transaction called “task” is characterized by its name, 
+the sequence of logical tasks (effect and duration), 
+scheduling attributes according to the modeled operating 
+system (for OSEK/VDX, it can be expressed by a priority, 
+a type 
+basic/extended , a preemptive or nonpreemptive 
+attribute) and its current state. 
+· 一个称为"任务"的事务是通过它的名字、逻辑任务序列（影响和持续时间） 根据模型化的操作系统确定的调度安排属性（对OSEK/VDX来说，它可以用优先级、基本/扩展的分类、 抢占或非抢占属性来表示） 及其当前状态来定性的。
+• A “network_message” has three attributes: its name, attributes 
+depending on the protocol (for CAN, they are the 
+identifier, the type NRM/XTD/DATA/RTR, and the data 
+length) and, if possible, the real data values. 
+Module compatibility is achieved, defining exactly for 
+each simulation tool the form taken by transactions and their 
+attributes. The notion of transaction is generic. When using 
+SES Workbench simulation tool, it is implemented by the so 
+called transaction formalism linked with a C data structure. 
+When Opnet Modeler2 or Modline3 are used, the notion of 
+transaction is implemented, respectively, by the information 
+packet or the customer formalisms. 
+·"网络消息"有三个属性： 其名称，取决于协议的属性 （对于CAN总线来说，是它们的标识符、 NRM/XTD/DATA/RTR 类型和数据长度），和在可能的情况下得到的真实数据的值。为实现模块的兼容性，每个建模工具的格式需要完全其按照其事务和相应的属性进行定义。事务的概念是通用的。使用 SES工作台建模工具时，它基于所谓的事务建模法通过C语言的数据结构的予以实现。当使用 Opnet Modeler2 或者 Modline3时，事务的概念是分别由信息包要求或实施客户指定的形式实现的。。
+
+Beware, however, of the homonymy between Carosse inter-
+module transactions and SES Workbench transactions. The first 
+ones represent intermodule communication in our system architecture 
+and have a set of well-defined attributes depending on 
+the type of communication between modules; the second ones 
+simply represent a transaction into a queuing system and they 
+
+have three tool specific attributes (category, phase, and port; see 
+SES Workbench documentation for details). 
+然而，要小心区别 Carosse模块的互联事务与SES 工作台的事务。前者代表在我们的系统结构中实现的模块间通信并有一套取决于模块间通信类型而定义的明确属性集合 ； 后者则只表示在系统中的事务队列机制，它有三个依据工具而特定属性 （类别、 阶段，和端口 ； 请参阅 SES 工作台文档以了解详细信息）。
+
+III. CAROSSE-PERF TOOL 
+From the concepts presented in the previous section, we can 
+deduce three points. 
+
+• The identification of generic modules (classes) leads to the 
+development of a library of components; each one of these 
+components is relevant to one class. 
+• The generic structure of a hardware architecture model 
+allows its automatic generation. 
+• The model structure exhibits the independence between 
+application software modules and hardware modules. 
+Therefore, the model that is executed (simulated) is the 
+hardware architecture model; the software architecture 
+model can be considered as a part of the simulation 
+scenario. 
+三.CAROSSE-PERF 工具 
+从上一节中提供的概念，我们可以推断出以下三点。
+对通用模块 （类）的认定最终建立了一个组件库； 这些组件每一个都有与其相关的类别。 
+硬件体系结构的一般模型结构可以自动生成。 
+模型结构展示了软件模块和硬件模块之间的独立性。因此，被执行（模拟）的模型是硬件体系结构模型 ；软件体系结构模型可以被视为模拟方案的一部分。
+These considerations led to the development of the 
+CAROSSE-Perf tool. Rather than building a new model for 
+each new embedded system, we developed a concept of model 
+modularity and a tool based on this concept. This tool helps 
+the system designer in modeling and simulating its embedded 
+system by providing the automatic generation of models. 
+Simulation is carried out executing a model of the embedded 
+application, thanks to a discrete event simulation tool, in this 
+case, SES Workbench. Note, however, that the methodology 
+is independent of the simulation tool used for the simulation 
+process. 
+这些考虑因素导致了CAROSSE-Perf工具的出现和发展。它不是为每个新的嵌入式系统都建立一个新的模型，我们开发了一个模块化设计的概念模型和基于这一概念的一种工具。此工具可提供自动生成的模型以帮助系统设计人员建模与仿真其嵌入式系统。仿真是通过执行建模好的嵌入的应用程序的以实现的，这得益于离散事件模拟工具，例如在本例中我们使用的SES工作台。但是请注意，建模方法与用于模拟过程的仿真工具是相互独立的。
+A. Modeling Process 
+The hardware architecture structure is defined as a set of modules 
+with a predefined structure and formal composition rules 
+(Fig. 2). In order to describe this structure, we defined a declarative 
+language allowing the description of such hardware architecture 
+to be a structured list of components. The grammar of 
+this language, in the extended Backus–Naur form (EBNF), is 
+described as follows: 
+
+
+network_section node_section 
+environment_section; 
+network_section 
+ha_model 
+
+
+
+{(can van)}-;4 
+can 
+“NWCAN” nw_name “MODVER” 
+module_name “BR” bit_rate “FER” 
+frame_error_rate “ENDCAN”; 
+van 
+
+
+
+“NWVAN” nw_name “MODVER” 
+module_name “TSR” time_slot_rate “FER” 
+frame_error_rate “ENDVAN”; 
+node_section 
+
+
+
+{node}node 
+“NODE” node_name module_list 
+“ENDNODE”; 
+module_list 
+
+
+
+module 
+
+
+module_list 
+module; 
+
+
+
+4The limitation to CAN and VAN networks is only due to current module 
+2Opnet Modeler is a product of Opnet Technologies Inc. (http://www.opnet. availability. If necessary, the syntax can be extended in order to take into accom). 
+
+
+count other network protocols. The same consideration is applicable to network 
+3Modline is a product of Simulog (http://www.simulog.fr). messages in the software architecture description language. 
+
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+CASTELPIETRA et al.: PERFORMANCE EVALUATION OF A MULTIPLE NETWORKED EMBEDDED ARCHITECTURE 
+
+
+Fig. 3. Construction of the runable simulation program. 
+
+module_list 
+
+
+
+msoi mmicroprocessor 
+mexecutor mscheduler msom {mnw_controller}-
+mio_interface {mport_in} 
+{mport_out}; 
+msoi 
+
+
+
+“SOI” module_name; 
+mmicroprocessor 
+“MICROPROCESSOR” 
+module_name [“POWER” real]; 
+mexecutor 
+
+
+
+“EXECUTOR” module_name; 
+mscheduler 
+“SCHEDULER” module_name; 
+msom 
+“SOM” module_name; 
+mnw_controller 
+“NW_CONTROLLER” 
+module_name “ON” nw_name [“AT” position]; 
+mio_interface 
+
+
+
+“IO_INTERFACE” 
+module_name; 
+mport_in 
+
+
+
+“PORT_IN” port_name; 
+mport_out 
+“PORT_OUT” port_name; 
+environment_section 
+“ENV” 
+module_name; 
+
+
+As an example, an extract of a description file written using 
+this language is shown in Fig. 3. 
+
+Having a prebuilt library of components (modules), the automatic 
+construction of the hardware architecture model is performed 
+by means of such a language. Otherwise, some modeling 
+effort has to be done in order to develop the missing modules. 
+The resulting model represents the hardware architecture disregarding 
+the links with its environment (software architecture, 
+external environment). 
+例如，使用这种语言编写的说明文件的一段摘录如图 3 所示。
+对于拥有了预设的库中组件 （模块），可以用这种语言的方式自动的建立的硬件体系结构模型。否则的话，为了制定缺失的模块就必须完成一些建模工作。所生成的模型表示未考虑与其环境（软件体系结构、外部环境）连接问题的硬件体系结构。
+Then, the model is compiled by the simulation tool (SES 
+Workbench, in this case) in order to obtain the runable simulation 
+program, as shown in Fig. 3. Notice that, at the simulation 
+
+step, the software architecture interpreter (the SOI module of 
+Fig. 2) and the scenario interpreter (the Environment module 
+of Fig. 2) will read, respectively, the software architecture description 
+file and the scenario description file. Therefore, these 
+two interpreters must be included in the hardware architecture 
+model before compilation. 
+然后，模型被模拟工具 （本例中使用的是SES 工作台) 编译，以获取可驱动的仿真程序，如图 3 所示的。请注意在这个步骤中， 软件体系结构解释器 （如图 2 的 SOI 模块） 和方案解析器 （如图 2 的环境模块） 将分别独立的读取该软件体系结构的描述文件和方案说明文件。因此，这两个解析器必须在编译之前被加入硬件体系结构模型中。
+    
+
+B. Simulation Process 
+Finally, after having obtained a runable simulation program, 
+the simulation process can begin. The software architecture 
+objects and the environment signals animate the simulation 
+(Fig. 4). Some modules provide run-time measurements 
+(Table I). 
+
+Software architecture and scenario are described by a text file 
+having a predefined syntax that must reflect the structure explained 
+in Sections II-A.2 and II-A.3. We defined a software architecture 
+description language and a scenario description language. 
+The grammar of the first one, again in the EBNF notation, 
+is described as follows: 
+B.模拟过程
+最后，获得了可驱动的仿真程序，就可以开始模拟过程。软件体系结构对象和环境信号对模型的模拟进行驱动 （如图 4）。某些模块则负责提供运行时测量 （见表I）。
+软件体系结构和方案通过一个文本文件，提供了反映第二章 A.2 和第二章 A.3 表述的结构的预定义的语法。我们定义软件结构描述语言和方案说明语言。在这里仍然用扩展的范式 (EBNF)描述前者的语法如下：
+sa_model 
+
+
+
+sa_declaration sa_distribution; 
+sa_declaration 
+{(task_declaration 
+message_declaration 
+control_rule_declaration)}; 
+task_declaration 
+
+
+
+“TASK” task_name 
+task_io task_code “ENDTASK”; 
+task_io 
+
+
+
+{(message_in 
+message_out 
+port_in port_out)}; 
+message_in 
+
+
+
+“MESS_IN” message_name; 
+message_out 
+“MESS_OUT” message_name; 
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 49, NO. 6, DECEMBER 2002 
+
+
+Fig. 4. Simulation software. 
+
+port_in “PORT_IN” port_name; 
+port_out “PORT_OUT” port_name; 
+
+
+task_code “:CODE” {logical_task}“:
+ENDCODE”; 
+logical_task duration “,” action; 
+
+action (“send_message” “get_message”) 
+“(” message_name “)” “read_port” 
+“write_port”) “(” port_name “)” “END”; 
+message_declaration “MESSAGE” message_
+name “DLB” message_length; 
+control_rule_declaration “ON” event 
+“ACTIVATE” task_name 
+
+
+“AT” date “ACTIVATE” 
+task_name 
+
+
+“EACH” time “ACTIVATE” 
+task_name; 
+event “message_rx (“msg_name”)” 
+“port_rx (“port_name”)” 
+
+
+“task_termination(“
+tas_name”)”; 
+sa_distribution {node_distribution} 
+{network_distribution}; 
+node_distribution “NODE” node_name 
+{task_placement} “ENDNODE”; 
+task_placement task_name “PRIORITY” 
+priority “PREEMPTIVE” Boolean; 
+network_distribution can_nw_distribution 
+van_nw_distribution; 
+
+
+
+can_nw_distribution 
+
+
+
+“CAN_NW” nw_name 
+{can_msg_placement} “ENDNW”; 
+van_nw_distribution 
+“VAN_NW” nw_name 
+{van_msg_placement} “ENDNW”; 
+can_msg_placement 
+message_name 
+“IDENT” identifier “VER” can_version 
+“RTR” boolean; 
+van_msg_placement 
+
+
+
+message_name 
+“IDENT” identifier “TYPE” 
+van_frame_type “RAK” boolean; 
+
+
+As it is a simple list of interruption occurrences rules, we omit 
+here the syntax of the scenario description language. 
+
+Note however, that the choice of these languages is totally arbitrary. 
+As long as it is able to describe the structures defined 
+in Sections II-A.2 and II-A.3, any description language can be 
+used. The SOI module and the Environment module will be responsible 
+for translating the description files into system objects 
+used by the model. As an example, we developed a second kind 
+of SOI that is able to read a software architecture from an AIL5 
+description file. Therefore, changing the description language 
+only involves changing the SOI module. Vice-versa, changing 
+5AIL, Architecture Implementation Language, is the result of a French research 
+project involving several carmakers, equipment suppliers, and research 
+institutes. It describes a complete architecture, from the functional architecture 
+to the operational architecture point of view. 
+
+TABLE I 
+MEASURES 
+  鉴于它是一个简单的中断事件规则列表，我们在这里略去对方案描述语言语法的介绍。
+   但是，请注意这些语言的选择完全是随意的。只要是它能够描述第二章 A.2 和 A.3 中定义的结构，任何描述语言都可以被使用。SOI 模块和环境模块将 负责将模型所使用的说明文件转化为系统对象。作为一个例子，我们开发了另一种能够从AIL5 描述文件中读取软件体系结构的SOI模型。因此，更改描述语言只涉及对SOI 模块的更改。反之则需要更改AIL5， 它作为一种体系结构实现语言是源于一个涉及几个汽车制造商、 设备供应商和研究机构的法国研究项目。它描述了完整的体系结构，从业务体系结构到功能的体系结构。
+
+the SOI module allows changing the level of detail of the software 
+architecture model without changing necessarily the software 
+architecture language (sometimes useful for compatibility 
+reasons, etc.). 
+SOI 模块允许更改软件体系结构模型中详细信息的级别，而无需更改相应的软件建模语言 （有时会因的兼容性的原因需要修改，等等)。
+During simulation, measures that are pertinent for performance 
+evaluation are memorized in a file. Performance measures 
+are done exploiting this file. For example, we have developed 
+algorithms that compute the following: 
+
+• network and processor loads; 
+• minimum, mean, maximum waiting time for a task before 
+its execution; 
+• maximum of the jitter on an event (for example, on the end 
+of a task assuming to be activated periodically); 
+• minimum, mean, maximum duration of a critical path as 
+defined in the example presented in the next section. 
+As shown in Fig. 4, the analysis of these measures can lead to 
+conclude that some required properties are not met on the modeled 
+embedded system (for example, the maximum duration of 
+a critical path is out of authorized bounds or a mean load of a 
+network is too high). In this case, we must design another oper-
+
+    SOI 模块允许更改软件体系结构模型中详细信息的级别，而无需更改相应的软件建模语言 （有时会因的兼容性的原因需要修改，等等)。
+    在模拟过程中，与性能评估有关的措施被记录在一个文件中。性能评估方法的设定通过修改此文件进行。例如，我们有设计了计算以下指标的算法：
+   网络和处理器负荷 ； 
+   最小、 平均、 最大任务执行轮候时间 ；
+   事件 的最大抖动指数（例如，在一个假定需要定期激活的任务的结束处） ； 
+   关键路径的最小、平均、 最大持续时间，如在下一节中提供的示例中定义的最大持续时间如图 4 所示，对这些措施的分析可以得出该嵌入式系统上某些必需属性没有得到匹配的结果（例如，关键路径的最大持续时间值超出授权的界限或网络平均负荷过高）。在这种情况下，我们必须在设计另一个可操作结构模型，下面的三种方法可用于执行此操作：
+
+Fig. 5. Simulation process. 
+
+
+Fig. 6. Multinetwork hardware architecture. 
+
+ational architecture model. The following three ways are used 
+to do this: 
+
+• modification of software 
+architecture: distribution and 
+configuration of tasks and/or messages; 
+• modification of hardware architecture: processors, network 
+controllers, topology, etc.; 
+• at worst, constraint relaxation. 
+Notice that we consider software architecture and scenario 
+as external elements, entering the system and animating simulation 
+(Fig. 5). This avoids the recompiling operation when 
+interruptive scenario (from the external environment) or software 
+architecture change and has some advantages: time saving 
+(compilation time is sometimes onerous) and re-usability (designers 
+of embedded architecture often use the same hardware 
+architecture with different functional architectures). 
+
+
+
+IV. CASE STUDY 
+In this section, we present an example of modeling and simulation 
+of an embedded system. For confidentiality reasons, the 
+system presented in this paper is a modified version derived 
+from an actual one embedded in the cars from PSA Peugeot-
+Citroën Automobile Company [13]. 
+
+A. Hardware Architecture 
+The supporting hardware architecture, depicted in Fig. 6, 
+is composed of nine nodes (ECU or Electronic Control Unit) 
+interconnected by means of one CAN and one VAN network. 
+Six of these nodes are Engine controller, AGB (Automatic Gear 
+Box), ABS/VDC (Anti-lock Brake System/Vehicle Dynamic 
+Control), WAS/DHC (Wheel Angle Sensor/Dynamic Head-
+lamp Corrector), Suspension controller, ISU computer (body 
+application controller), while, for industrial confidentiality 
+reasons, three of them are denoted 
+
+
+, 
+
+
+, and 
+. An operating 
+system called OSEK [14] (European standard for in-vehicle 
+embedded systems) runs on each ECU. 
+The ECUs are connected to networks by the mean of network 
+controllers. The ISU computer ensures the gateway function between 
+CAN and VAN. 
+
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 49, NO. 6, DECEMBER 2002 
+
+TABLE II 
+CAN AND VAN FRAME FORMAT 
+
+
+
+In the following, we briefly present the main characteristics 
+of the OSEK operating system and of CAN and VAN protocols. 
+
+1) OSEK (Offene Systeme und deren schnittstellen für die 
+Elektronik im Kraft-fahrzeug): OSEK [14] is a multitask operating 
+system. Its scheduling policy is the pertinent aspect for 
+this study. OSEK implements a Fixed Priority (FP) scheduling 
+policy combined with Priority Ceiling Protocol (PCP) to avoid 
+priority inversion or deadlock due to exclusive resource access. 
+Preemption is sometimes allowed. 
+
+One SOM,two schedulers and one executor module were developed 
+in order to model a simple OSEK operating system 
+where we only consider the FP policy. Task scheduling is performed 
+on the basis of the priority and of the ability to be preempted 
+by other tasks (preemptive/nonpreemptive task). 
+
+2) CAN: The MAC protocol of CAN [1], [2] uses the 
+CSMA/CA bit to bit nondestructive arbitration over the ID 
+field (Identifier). The identifier is coded using 11 b (CAN2.0A) 
+or 29 b (CAN2.0B). Up to 8 B of data can be carried by one 
+CAN frame and a CRC of 16 b is used. CAN uses an NRZ 
+
+
+. 
+The maximum message transmission time should include the 
+worst case bit-stuffing number. This length is given by 
+
+
+(1) 
+where 
+
+is the data length in bytes and 
+
+
+the bit time; 
+the fraction represents the overhead due to the bit stuffing,a 
+technique implemented by CAN for bit synchronization. 
+Frame format is given in Table II. We will not here detail field 
+signification; note, however, that the Inter Frame Space (IFS) 
+has to be considered when calculating the bus occupation time 
+of a CAN message. 
+
+For this case study, we developed one CAN network module 
+and one CAN network controller module, the Intel 82527 (with 
+14 transmission buffers). We suppose the use of CAN 2.0A 
+frames only and a bit rate of 250 kb/s. 
+
+3) VAN: VAN [3], [4] is less known than CAN but quite similar. 
+We will just outline its main characteristics. Its MAC protocol 
+is CSMA/CA bit-to-bit nondestructive arbitration over the 
+ID field (Identifier), coded with 12 b. Up to 28 B of data can be 
+carried by one VAN frame and a CRC of 15 b is used. The bit 
+rate can reach 1 Mb/s. 
+
+One of the main differences between CAN and VAN is that 
+CAN uses NRZ code while VAN uses a so-called Enhanced 
+Manchester (E-Manchester) code: a binary sequence is divided 
+into blocks of 4 b and the first three bits are encoded using NRZ 
+code (whose duration is defined as one Time Slot per bit) while 
+
+the fourth one is encoded using Manchester code (two Time 
+Slots per bit). It means that4bof data are encoded using five 
+Time Slots (TSs). Thanks to E-Manchester coding, VAN, unlike 
+CAN, does not need bit stuffing for bit synchronization. This 
+technique is sometimes denoted by 4B/5B (as in FDDI). 
+
+The format of VAN frame is given in Table II. The calculation 
+of the transmission duration (or equivalent frame length) of a 
+VAN frame is given by 
+
+
+(2) 
+Note, however, that the Inter Frame Gap (IFG), fixed to 4 TS, 
+has to be considered when calculating total bus occupation time 
+of a VAN message. 
+
+Finally, VAN has one feature not present in CAN: the 
+in-frame response capability. The same single frame can 
+include the remote message request of the consumer (identifier 
+and command fields) and the immediate response of the 
+producer (data and CRC fields). 
+
+For this case study, we developed one VAN network 
+module and two VAN network controller modules: the Philips 
+PCC1008T and the MHS 29C461. While the MHS 29C461 
+controller can handle up to 14 messages in parallel (full VAN), 
+the Philips PCC1008T has only one transmission buffer and 
+one FIFO reception queue with two places (basic VAN). VAN 
+bit rate, or more precisely time slot rate, is fixed to 62.5 kTS/s. 
+
+B. Software Architecture: Specification of Application Tasks 
+and Messages 
+The software architecture consists of 44 OSEK OS tasks 
+(simply tasks in the following) and 19 messages between these 
+tasks. Each OS task is defined as a sequence of logical tasks 
+(Section II-A.3). In the case study, two kinds of task can be 
+identified: 
+
+1) tasks activated by occurrence of the event “reception of 
+
+a message” (event-triggered tasks); they can be described 
+
+by the following logical task sequence: 
+
+Example: and 
+; 
+
+2) Tasks that are time triggered; they can be described by the 
+following logical task sequence: 
+
+
+Example: 
+Table III lists the 44 tasks composing the application. For 
+each task, it gives the priority following Rate Monotonic rule, 
+
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+CASTELPIETRA et al.: PERFORMANCE EVALUATION OF A MULTIPLE NETWORKED EMBEDDED ARCHITECTURE 
+
+TABLE III TABLE IV 
+SOFTWARE ARCHITECTURE MESSAGES EXCHANGED OVER NETWORKS 
+
+
+the activation period (for time-triggered tasks), the ECU it runs 
+
+
+on, the execution time on this ECU (disregarding possible preemptions), 
+and input and output messages. Finally, note that, in 
+this application, task dependencies ensure that every task is expected 
+to be periodically executed. Therefore, an expected termination 
+period can be defined as the period of task termination 
+if physical resources (host CPU and network bandwidth) were 
+infinite. 
+
+Moreover, messages of Table IV are exchanged between tasks 
+supported by different ECUs over the two networks. As tasks 
+generating messages are periodic, messages can be expected to 
+be periodically transmitted too. The expected transmission period 
+of a message corresponds exactly to the activation period 
+of the generating task and it is shown in Table IV. 
+
+C. Environment 
+Due to the totally periodic software architecture configuration, 
+no explicit environment stimuli were modeled. Then, no 
+Environment module will be used. 
+
+D. Performance Parameters 
+In this application, we are mainly interested in the 
+“end-to-end response times” (minimum, maximum and mean 
+values as well as jitters). We define two kinds of end-to-end 
+response times. The first type (Message Response Time and 
+Task Response Time) concerns only one entity (a message or a 
+task), while the second type (Logical Chain Response Time)is 
+defined on a set of dependent entities (tasks and messages). 
+
+• 
+Message Response Time is the interval between the generation 
+date of the message (assumed at the end of the execution 
+of the task who generates this message) and the 
+date the message is received by a consuming task (activation 
+of this task, see Fig. 7). 
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 49, NO. 6, DECEMBER 2002 
+
+
+Fig. 7. Response time definition for tasks and messages. 
+
+Fig. 8. Response time definition for logical chains. 
+
+• 
+Task Response Time is the interval between the activation 
+date of the task and the end of its execution (Fig. 7). 
+• 
+Logical Chain Response Time is applied to a logical 
+chain. We call logical chain a causal sequence of tasks 
+and messages. For example: time triggered 
+, producing 
+message , activated 
+by message 
+
+
+arrival and producing message 
+at its 
+end 
+, activated by message 
+arrival. 
+In the presented case study, we will focus on the two most 
+complex logical chains, T_Engine1 -M1 -T_ISU3 -M14 T_
+Y3 and T_AGB2 -M11 -T_ISU2 -M13 -T_Y2 , that 
+we will later call, respectively, lc1 and lc2. Here, the two tasks 
+and 
+
+
+, running on a VAN connected node, depend, 
+respectively, on 
+and 
+
+
+running on CAN 
+connected nodes. Therefore, the Logical Chain Response Time 
+is defined as the interval between the activation date of the task 
+generating the first message and the termination date of the task 
+consuming the last message (Fig. 8). 
+
+
+Using OSEK/VDX with multitask single-processor ECUs 
+and the message scheduling policies of VAN and CAN lead 
+inevitably to jitters on task terminations and message releases 
+and, therefore, to stochastic response times. In this paper, our 
+goals are: 1) to ensure the correct operation of the system with 
+
+
+regard to buffer management in network controllers and 2) 
+to analyze and to limit end-to-end response times of the two 
+logical chains previously identified. 
+
+More precisely, we assume that our system has to meet the 
+following properties. 
+1) No message can be overwritten in network controller 
+buffers. 
+2) The end-to-end response times of the two logical chains 
+( 
+
+
+and 
+
+
+, respectively) have to meet 
+E. Model Construction and Simulation 
+We applied our methodology to the modeling and the simulation 
+of the case study. A hardware architecture description file 
+(see Fig. 3) is used to automatically build the SES Workbench 
+model from the prebuilt module library. A software architecture 
+description file (see Fig. 9) will be used as input of this model 
+in order to evaluate its performances and verify constraints defined 
+in Section IV-D. 
+
+Several simulations, with different parameter configuration, 
+had to be performed in order to obtain an architecture meeting 
+the constraints. 
+
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+CASTELPIETRA et al.: PERFORMANCE EVALUATION OF A MULTIPLE NETWORKED EMBEDDED ARCHITECTURE 
+
+
+Fig. 9. Software architecture description file (extract). 
+
+
+Fig. 10. Command: grep “OVERWRITTEN” log.txt. 
+
+Finally, we will use analytic methods to find out lower and 
+upper bounds of response times; these bounds will be used to 
+validate simulation results and to help in simulation result study. 
+
+1) Simulation 1: As a first simulation attempt, we assign the 
+Intel controller to the six nodes connected on the CAN network 
+and the Philips controller to the four nodes connected on the 
+VAN network. Note that one node, the ISU computer, is connected 
+on two different buses by means of two different network 
+controllers. 
+
+All the tasks are considered as being OSEK basic tasks. 
+A nonpreemptiveFirst Come First Served (FCFS) scheduling 
+policy, with priority, is used. 
+
+We simulate during 4200 ms (the least common multiple of all 
+activation periods) using the SES Workbench simulation tool. 
+A trace file analysis is performed and results are presented by 
+means of a special-purpose graphical interface. The periodicity 
+and determinism of the scenario causes all system simulations to 
+have an identical result; so we can reduce analysis to the results 
+of one single simulation. 
+
+We start verifying property 1) (see Section IV-D). This is 
+simply performing with a “grep” command or equivalent over 
+the trace file. A screenshot is given in Fig. 10 where it can be 
+seen that some messages are overwritten in the single transmission 
+buffer of the VAN controller: for example, message 14 is 
+overwritten 44 times through its 419 transmission attempts. 
+
+As a chain reaction, corresponding receiver tasks do not behave 
+correctly and the 2) constraint is not met either. We conclude 
+that the basic VAN controller PCC1008T is not suitable 
+when different tasks transmit different VAN messages at the 
+same node. 
+
+2) Simulation 2: Therefore, we assign the full VAN controller 
+MHS 29C461 to all nodes transmitting more than one 
+message on the VAN bus (ISU computer, 
+
+
+, and 
+). This 
+change is simply performed modifying three lines (one for each 
+controller) in the hardware architecture description file (Fig. 3). 
+We compile the SES Workbench model one more time and we 
+relaunch the simulation (Figs. 3 and 4). 
+This time, messages seem to be correctly transmitted. Automatic 
+trace file analysis finds that CAN is loaded to 21.5% and 
+VAN 41%. 
+
+Property 1) verified, we can focus on property 2). The minimum, 
+mean, and maximum values as well as variance of the 
+end-to-end response times of the two logical chains are shown 
+in Table V(a). We can observe that none of the chains meet the 
+1-ms standard deviation constraint. 
+
+3) Simulation 3: Knowing that all tasks concerned by the 
+first logical chain are the prioritary ones of their own nodes, we 
+suppose that scheduling policy could affect its performance; so, 
+we change the nonpreemptive scheduler with a preemptive one. 
+As we consider the scheduler to be part of the hardware architecture 
+(see Section II-A), the hardware architecture description 
+file is modified again (the lines, one for each node, indicating the 
+type of scheduler). We compile the SES Workbench model and 
+we launch a new simulation. The analysis of the trace file proves 
+that we were right; inspecting Table V(b), we can notice that the 
+first chain now respects the 1-ms standard deviation constraint. 
+However, the second chain still does not. 
+
+Further trace file analysis points out the problem: priority of 
+
+
+is probably too weak. 
+
+
+4) Simulation 4: Therefore, we change 
+
+
+priority 
+from 5 (lower) to 2 (higher) and we relaunch simulation. Note 
+that this operation is simply performed by changing one line in 
+the software architecture description file, as shown in Fig. 11, 
+and that model recompiling has not been necessary. 
+
+
+This time [Table V(c)], the 
+
+
+logical chain 
+( ) behaves much better and both end-to-end response times 
+respect the 2) constraint. 
+F. Analytic Analysis 
+In order to validate these results, we apply analytic formulas 
+of [10], [11], and [17] to our architecture to obtain the lower 
+(best case) and the upper (worst case) bounds on the response 
+times. It is worth noting that in practice neither the best case 
+nor the worst case can necessarily be achieved, but they provide 
+some deterministic bounds. 
+
+Since a time-triggered design approach is adopted, both tasks 
+and messages are hoped to be “periodic, ” although, in practice, 
+jitters exist due to the local scheduling of task with fixed priority 
+and the global scheduling of messages on the basis of the 
+MAC protocol of the network. In this case, a task or a message of 
+priority 
+
+
+can be characterized by ( 
+, 
+
+
+where 
+is the maximum 
+duration of the execution for a task, given by Table III, or 
+of the transmission of a message, given by (1) and (2), and 
+is the expected period for a “periodic” task or message, given, 
+respectively, by Tables III and IV. 
+Moreover, we define 
+
+
+as the maximum bus occupation time 
+for a message of priority ; this corresponds to the maximum 
+transmission time plus the IFS for a CAN message or the IFG 
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 49, NO. 6, DECEMBER 2002 
+
+TABLE V 
+ANALYSIS OF LOGICAL CHAIN PERFORMANCE (ms) 
+
+
+
+Fig. 11. Priority changing. 
+
+for a VAN message. We assume that only one entity per resource 
+(task over a node or message over a network) is allowed to have a 
+given priority. For notation convenience, we assume that priority 
+
+is higher than priority . Details and explanations about 
+these formulas are out of the scope of this paper. They can be 
+found in [10], [11], and [17]. 
+
+We are interested in evaluating the response time of such 
+a task or message of priority . The end-to-end response time 
+we defined above can be obtained by summing these individual 
+response times. 
+
+1) Best Case: The best case corresponds to the situation 
+where a task of priority is executed without any waiting time 
+
+and a message of priority is transmitted without any waiting 
+time. In this case, 
+(3) 
+
+Applying it to the two logical chains, 
+
+(4) 
+that is, the best case response time of the logical chain is the sum 
+of best case response times of all entities (tasks and messages) 
+involved by the chain. 
+
+2) Worst Case: 
+a) Messages: For a message of priority the worst case 
+response time can be calculated as 
+
+(5) 
+with 
+
+
+(6) 
+(7) 
+b) Tasks: For a task of priority , the same arguments lead 
+to similar formulae. However, we must distinguish two cases. 
+1) Nonpreemptive fixed-priority scheduling; in this case, 
+
+
+(8) 
+with 
+
+
+(9) 
+(10) 
+2) 
+Preemptive fixed-priority scheduling (without critical 
+sections) 
+
+
+(11) 
+with 
+(12) 
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+CASTELPIETRA et al.: PERFORMANCE EVALUATION OF A MULTIPLE NETWORKED EMBEDDED ARCHITECTURE 
+
+G. Results Discussion 
+In this paper, we presented the modular modeling and 
+simulation methodology allowing the development of reusable 
+Finally, we can apply these formulae to calculate the worst 
+
+component models. The methodology was implemented in the 
+
+case response time of logical chains: 
+
+Carosse-perf tool. 
+
+
+(13) Then, we applied the methodology and the tool to a case 
+study drawn from a PSA Peugeot-Citroën application in order to 
+Results are shown in Table V. First of all, we notice that simulation 
+results rest within bounds given by the analytic method of 
+Section IV-F. However, it can be seen that analytic bounds for 
+the worst case are never reached during simulation. In Table V, 
+maximum simulation values vary from 40% to 70% of analytic 
+calculated worst cases while mean values vary from 30% to 
+60%. The importance of the simulation to obtain more realistic 
+results becomes obvious when evaluating performances of an 
+embedded system. 
+
+From these tables we can also see that, compared to nonpreemptive 
+scheduling, preemptive scheduling logically results in 
+shorter response time for high priority tasks and longer response 
+time for low priority tasks. Note however that this fact seems to 
+be in contrast with analytic method results, where the worst case 
+bound gets better for preemptive policies than for nonpreemptive 
+ones, irrespective of task priority. This is perfectly normal 
+while results from the two methods do not have to be interpreted 
+in the same way: analytic results can be used as bounds to validate 
+simulation results, but they have different meanings and 
+they are rather complementary. 
+
+V. CONCLUSION 
+Analytic methods provide bounds for the response times but 
+it is not sure that these bounds can be reached. This can lead to 
+integrating oversized equipment in an embedded architecture. 
+Nevertheless, cost constraints, especially for carmakers, are a 
+crucial point. Simulation methods override this problem. 
+
+In fact, simulation methods do not need so many hypotheses 
+as analytic methods and allow evaluation of more accurate 
+models. Consequently, a larger number of parameters can 
+be handled. Moreover, simulation trace analysis can provide 
+much more information about system behavior than analytic 
+methods. Therefore, simulation techniques are a better support 
+for operational architecture configuration (task and message 
+scheduling parameters, scheduling policies, system resources, 
+task placement, communication controller parameters, network 
+bandwidth, etc.) and they are largely preferred by industrial 
+designers, when developing embedded architectures. 
+
+However, simulation model development is quite time consuming, 
+as it has to obey to the formalism of a general-purpose 
+simulation tool that is not specific to the embedded system domain. 
+In this context, support of model elaboration and simulation 
+is of primary importance. That is why we developed 
+a modular approach for the modeling and simulation of such 
+embedded systems. The advantages are fast model construction 
+and simple reconfiguration of its components, as shown in the 
+case study. Moreover, the realization of a library of basic prebuilt 
+components (processors, schedulers, networks, etc.) with 
+well-defined interfaces allows the automatic construction of executable 
+models, so permitting nonexperts of the simulation tool 
+to build, simulate, and analyze models. 
+
+evaluate some response times (best, worst, and mean response 
+times). These results, presented in Section IV, are compliant 
+with those given by analytic methods but they are closer to 
+reality. 
+
+Notice that the scope of application of this work is limited to 
+the modeling and simulation of embedded systems and more 
+precisely of in-vehicle applications, as the behavior of these 
+software applications is assumed to be well-defined and task 
+scheduling over ECU’s is predictable. The module decomposition 
+and the choice of the level of detail was driven by the experience 
+and the know-how of the carmaker, partner of this project. 
+Other application domains could lead to different choices [18]. 
+
+Main perspectives of this work are the enlargement of the 
+module library and the development of a graphical interface to 
+build models, launch simulations, and analyze results. 
+
+REFERENCES 
+
+[1] 
+Road Vehicles—Interchange of Digital Information—Controller Area 
+Network for High-Speed Communication, ISO 11898, 1994. 
+[2] 
+Road Vehicles—Low-Speed Serial Data Communication—Part 2: Low-
+Speed Controller Area Network, ISO 11519-2, 1994. 
+[3] 
+Road Vehicles—Low-Speed Serial Data Communication—Part 3: Vehicle 
+Area Network, ISO 11519-3, 1994. 
+[4] Groupement d’Intérêt Economique de Recherches et d’Etudes PSA-Renault 
+(GIE.RE. PSA-Renault). (1994) Van user handbook v2.20. [Online] 
+Available: http://www.van-mux.org/techni/techni0.htm 
+[5] 
+Specification of the TTP/C Protocol, Version 0.5, TTTech Computertechnik 
+GmbH, Vienna, Austria, July 1999. 
+[6] 
+Class B Data Communications Network Interface, SAE J1850, May 
+2001. 
+[7] 
+M. Felder, C. Ghezzi, and M. Pezzè, “Analysing refinements of state 
+based specifications: The case of TB nets,” in Proc. Int. Symp. Software 
+Testing and Analysis, 1993. 
+[8] 
+G. Juanole, Modélization et Évaluation du Protocole MAC du Réseau 
+CAN. Poitiers, France: Editions LISI-ENSMA, 1999. 
+[9] 
+A. Rajnak, K. Tindell, and L. Casparsson. (1998) Volcano communications 
+concept. [Online] Available: http://www.vct.se 
+[10] 
+K. Tindell and J. Clark, “Holistic schedulability analysis for distributed 
+hard real-time systems,” Microprocess. Microprogr., vol. 40, pp. 
+117–134, 1994. 
+[11] 
+Y. Q. Song, F. Simonot-Lion, and N. Navet, De l’Évaluation de 
+Performances du Systéme de Communication á la Validation de 
+l’Architecture Opérationnelle-Cas du Systéme Embarqué dans l’Automobile. 
+Poitiers, France: Editions LISI-ENSMA, 1999. 
+[12] 
+Y. Q. Song, F. Simonot, and P. Bélissent, “VACANS—A tool for the 
+validation of CAN-based applications,” in Proc. WFCS’97, Barcelona, 
+Spain, Oct. 1997, pp. 381–390. 
+[13] 
+A. Coustre, “The electrical electronic architecture of PSA Peugeot Citroen 
+vehicles: Current situation and future trends,” in Networking and 
+Communication in the Automobile Conf., Munich, Germany, Mar. 2000. 
+[14] 
+OSEK. (2001) OSEK/VDX operating system, version 2.2. [Online]
+http://www.osek-vdx.org 
+[15] 
+M. Courrier, F. Simonot-Lion, and Y. Q. Song, “Microscopic modeling 
+of support system for in-vehicle embedded systems,” in Distributed 
+and Parallel Embedded Systems, F. J. Ramming, Ed. Norwood, MA: 
+Kluwer, 1999, pp. 139–148. 
+[16] 
+P. Castelpietra, Y. Q. Song, F. Simonot-Lion, and O. Cayrol, “Performance 
+evaluation of a multiple networked in-vehicle embedded architecture,” 
+in Proc. WFCS 2000, Porto, Portugal, Sept. 2000, pp. 187–194. 
+[17] 
+C. L. Liu and J. W. Layland, “Scheduling algorithms for multiprogramming 
+in a hard real-time environment,” J. ACM, vol. 20, no. 1, pp. 46–61, 
+1973. 
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 49, NO. 6, DECEMBER 2002 
+
+[18] 
+D. Cavaliere, F. Simonot-Lion, Y. Q. Song, and O. Hembert, “A component 
+based approach for modeling and validation of an automated manufacturing 
+system,” in Proc. ETFA-IEEE 2001, Antibes Juan les Pins, 
+France, Oct. 2001, pp. 465–474. 
+Paolo Castelpietra was born in Rome, Italy, in 1972. 
+He received the Master of Science degree in electronics 
+from the University of Rome “La Sapienza,” 
+Rome, Italy, in 1998, and the French FIRTECH degree 
+for technological research in computer sciences 
+from the Institut National Polytechnique de Lorraine, 
+Nancy, France, in 2000. 
+
+In 1998, he joined the TRIO Research Group, 
+LORIA Research Laboratory in Computer Science, 
+Nancy, France, as a Research Engineer. He is 
+currently involved in modeling and simulation of 
+distributed real-time embedded systems. 
+
+
+Ye-Qiong Song received the B.Sc. degree from the 
+Beijing Posts and Telecommunications Institute, 
+Beijing, China, in 1984, the M.Sc. degree from 
+the University of Paris 6, Paris, France, in 1988, 
+and the Ph.D. degree from the Institut National 
+Polytechnique de Lorraine, Nancy, France, in 1991, 
+all in telecommunications and computer science. 
+
+Since 1992, he has been an Associate Professor 
+in the Department of Computer Science, University 
+“Henri Poincaré” of Nancy 1, Nancy, France. He has 
+also been a member of the TRIO Research Group, 
+
+LORIA Research Laboratory in Computer Science, Nancy, France, since 1988. 
+
+His main research topics are modeling and performance evaluation of networks 
+
+and real-time distributed applications, including industrial local area networks, 
+
+in-vehicle embedded systems, IP networks, and mobile networks. 
+
+
+Françoise Simonot-Lion is a Professor at the 
+Institut National Polytechnique de Lorraine, Nancy, 
+France. She is also the Scientific Leader of the TRIO 
+Research Group, LORIA Research Laboratory 
+in Computer Science, Nancy, France. Her main 
+research topics are modeling languages for the 
+design of real-time distributed applications and 
+verification techniques of real-time properties. 
+
+
+Mondher Attia received the engineering and Ph.D. 
+degrees in telecommunications from “Sup Telecom 
+Paris (ENST),” Paris, France, in 1978 and 1980, 
+respectively. 
+
+In 1988, he joined PSA Peugeot-Citroën, Vélizy-
+Villacoublay, France, to manage research into traffic 
+safety, mechatronic system design, and vehicle electronic 
+architecture. He taught at the “Institut National 
+des Télécommunications,” Paris, France, and, from 
+1986 to 1987, he designed transmission modules of 
+ground/air weapon systems at Thomson. He also re
+
+
+ceived the status of Professor in 1996 from the “Paris VI” University. 
+
+Authorized licensed use limited to: Dalian University of Technology. Downloaded on August 25, 2009 at 23:16 from IEEE Xplore. Restrictions apply. 
+
+

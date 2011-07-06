@@ -1,0 +1,47 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CORNER_LIST	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	t	typeref:struct:__anon1	file:
+FTOI	susan.c	316;"	d	file:
+HGEN	susan.c	300;"	d	file:
+I	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+MAX_CORNERS	susan.c	296;"	d	file:
+SEVEN_SUPP	susan.c	295;"	d	file:
+TOTAL_TYPE	susan.c	/^typedef float      TOTAL_TYPE; \/* for my PowerPC accelerator only *\/$/;"	t	file:
+TOTAL_TYPE	susan.c	/^typedef int        TOTAL_TYPE; \/* this is faster for "int" but should be "float" for large d masks *\/$/;"	t	file:
+__anon1::I	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+__anon1::dx	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+__anon1::dy	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+__anon1::info	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+__anon1::x	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+__anon1::y	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+argv_in	susan.c	/^  char * argv_in = "-s -3 -n -q -b -p";$/;"	v
+corner_draw	susan.c	/^corner_draw(in,corner_list,x_size,drawing_mode)$/;"	f
+dx	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+dy	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+edge_draw	susan.c	/^edge_draw(in,mid,x_size,y_size,drawing_mode)$/;"	f
+enlarge	susan.c	/^enlarge(in,tmp_image,x_size,y_size,border)$/;"	f
+exit_error	susan.c	315;"	d	file:
+get_image	susan.c	/^void get_image(filename,in,x_size,y_size)$/;"	f
+getint	susan.c	/^int getint(fd)$/;"	f
+info	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+int_to_uchar	susan.c	/^int_to_uchar(r,in,size)$/;"	f
+main	susan.c	/^main(argc, argv)$/;"	f
+median	susan.c	/^uchar median(in,i,j,x_size)$/;"	f
+put_image	susan.c	/^put_image(filename,in,x_size,y_size)$/;"	f
+setup_brightness_lut	susan.c	/^void setup_brightness_lut(bp,thresh,form)$/;"	f
+susan_corners	susan.c	/^susan_corners(in,r,bp,max_no,corner_list,x_size,y_size)$/;"	f
+susan_corners_quick	susan.c	/^susan_corners_quick(in,r,bp,max_no,corner_list,x_size,y_size)$/;"	f
+susan_edges	susan.c	/^susan_edges(in,r,mid,bp,max_no,x_size,y_size)$/;"	f
+susan_edges_small	susan.c	/^susan_edges_small(in,r,mid,bp,max_no,x_size,y_size)$/;"	f
+susan_principle	susan.c	/^susan_principle(in,r,bp,max_no,x_size,y_size)$/;"	f
+susan_principle_small	susan.c	/^susan_principle_small(in,r,bp,max_no,x_size,y_size)$/;"	f
+susan_smoothing	susan.c	/^void susan_smoothing(three_by_three,in,dt,x_size,y_size,bp)$/;"	f
+susan_thin	susan.c	/^susan_thin(r,mid,x_size,y_size)$/;"	f
+uchar	susan.c	/^typedef  unsigned char uchar;$/;"	t	file:
+usage	susan.c	/^usage()$/;"	f
+x	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public
+y	susan.c	/^typedef  struct {int x,y,info, dx, dy, I;} CORNER_LIST[MAX_CORNERS];$/;"	m	struct:__anon1	file:	access:public

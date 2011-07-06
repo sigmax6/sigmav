@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.ui.views,3.4.0.I20090525-2000,"org.eclipse.ui.views",1257487288868
+started,bundle,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"org.eclipse.ui.workbench",1257487288868
+started,bundle,org.eclipse.ui.workbench.texteditor,3.5.0.v20090603,"org.eclipse.ui.workbench.texteditor",1257487288868
+started,bundle,org.eclipse.update.configurator,3.3.0.v20090312,"org.eclipse.update.configurator",1257487288868
+started,bundle,org.eclipse.update.core,3.2.300.v20090525,"org.eclipse.update.core",1257487288868
+started,bundle,org.eclipse.update.scheduler,3.2.200.v20081127,"org.eclipse.update.scheduler",1257487288868
+started,bundle,com.trolltech.qtcppproject,1.5.2,"com.trolltech.qtcppproject",1257487288868
+started,bundle,com.mbartl.eclipse.viplugin.statusbar,1.0.3,"com.mbartl.eclipse.viplugin.statusbar",1257487288868
+started,bundle,com.mbartl.viplugin.eclipse.layer,1.18.0,"com.mbartl.viplugin.eclipse.layer",1257487288868
+os,sysinfo,,,"linux",1257487288871
+arch,sysinfo,,,"x86",1257487288871
+ws,sysinfo,,,"gtk",1257487288871
+locale,sysinfo,,,"en_US",1257487288871
+processors,sysinfo,,,"2",1257487288871
+java.runtime.name,sysinfo,,,"OpenJDK Runtime Environment",1257487288871
+java.runtime.version,sysinfo,,,"1.6.0_0-b16",1257487288871
+java.specification.name,sysinfo,,,"Java Platform API Specification",1257487288871
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1257487288871
+java.specification.version,sysinfo,,,"1.6",1257487288871
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1257487288871
+java.version,sysinfo,,,"1.6.0_0",1257487288871
+java.vm.info,sysinfo,,,"mixed mode, sharing",1257487288871
+java.vm.name,sysinfo,,,"OpenJDK Client VM",1257487288871
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1257487288871
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1257487288871

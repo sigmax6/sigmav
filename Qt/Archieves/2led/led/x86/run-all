@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /opt/FriendlyARM/mini2440/x86-qtopia/qtopia-2.2.0-FriendlyARM/qtopia/bin
+./startdemo 
+

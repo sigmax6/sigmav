@@ -1,0 +1,122 @@
+<!DOCTYPE UI><UI>
+<class>YourButtonBaseForm</class>
+<widget>
+    <class>QWidget</class>
+    <property stdset="1">
+        <name>name</name>
+        <cstring>YourButtonBaseForm</cstring>
+    </property>
+    <property stdset="1">
+        <name>geometry</name>
+        <rect>
+            <x>338</x>
+            <y>118</y>
+            <width>320</width>
+            <height>240</height>
+        </rect>
+    </property>
+    <property stdset="1">
+        <name>maximumSize</name>
+        <size>
+            <width>320</width>
+            <height>240</height>
+        </size>
+    </property>
+    <property stdset="1">
+        <name>caption</name>
+        <string>BUTTONS-SSDUT</string>
+    </property>
+    <widget>
+        <class>QLayoutWidget</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>Layout1</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>60</x>
+                <y>40</y>
+                <width>86</width>
+                <height>164</height>
+            </rect>
+        </property>
+        <vbox>
+            <property stdset="1">
+                <name>margin</name>
+                <number>0</number>
+            </property>
+            <property stdset="1">
+                <name>spacing</name>
+                <number>6</number>
+            </property>
+            <widget>
+                <class>QRadioButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>key1RadioButton</cstring>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>KEY1</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QRadioButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>key2RadioButton</cstring>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>KEY2</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QRadioButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>key3RadioButton</cstring>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>KEY3</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QRadioButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>key4RadioButton</cstring>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>KEY4</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QRadioButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>key5RadioButton</cstring>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>KEY5</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QRadioButton</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>key6RadioButton</cstring>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>KEY6</string>
+                </property>
+            </widget>
+        </vbox>
+    </widget>
+</widget>
+</UI>

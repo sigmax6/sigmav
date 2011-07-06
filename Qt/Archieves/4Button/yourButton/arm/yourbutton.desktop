@@ -1,0 +1,10 @@
+[Translation]
+File=example-nct
+Context=Example
+
+[Desktop Entry]
+Comment=An Example Program
+Exec=yourbutton
+Icon=Games
+Type=Application
+Name=Your_Button

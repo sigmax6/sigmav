@@ -1,0 +1,15 @@
+
+Grmon> run
+
+
+Sorting 60000 vectors based on distance from the origin.
+
+
+
+Sorted!
+
+ Time used : 4.865994 secs.
+
+Program exited normally.
+
+Grmon> 

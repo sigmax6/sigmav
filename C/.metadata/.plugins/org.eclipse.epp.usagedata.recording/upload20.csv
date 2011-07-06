@@ -1,0 +1,12 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560785007
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.help.aboutAction",1257560818186
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560818211
+started,bundle,com.trolltech.qtcppdesigner,1.5.2,"com.trolltech.qtcppdesigner",1257560820606
+opened,view,com.trolltech.qtcppdesigner,1.5.2,"com.trolltech.qtcppdesigner.views.widgetboxview",1257560823075
+activated,view,com.trolltech.qtcppdesigner,1.5.2,"com.trolltech.qtcppdesigner.views.widgetboxview",1257560824063
+activated,view,org.eclipse.ui.navigator.resources,3.4.0.I20090525-2000,"org.eclipse.ui.navigator.ProjectExplorer",1257560827328
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257560828856
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257561762740
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257561769318
+closed,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1257561774382

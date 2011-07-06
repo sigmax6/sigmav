@@ -1,0 +1,20 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BUFF_SIZE	rw1-2.c	3;"	d	file:
+MAXLINE	shell1-5.c	7;"	d	file:
+MAX_ARGV	shellPowered.c	8;"	d	file:
+MAX_LINE	shellPowered.c	7;"	d	file:
+main	circlePid.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	err1-6.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	ls1-1.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	myls.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	myls2.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	pid1-4.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	rw1-2.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	rwstd1-3.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	shell1-5.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])
+main	shellPowered.c	/^int main (int argc, char const* argv[])$/;"	f	signature:(int argc, char const* argv[])

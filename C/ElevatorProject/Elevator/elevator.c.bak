@@ -1,0 +1,394 @@
+//
+//Tue May  4 20:23:33 CST 2010
+
+#include<stdio.h>
+#include<pthread.h>
+
+#define MAX_FLOOR 3
+//---------------------
+typedef enum Status{
+    open,
+    close,
+    run,
+    stop
+}STATUS;
+
+typedef enum OutReq{
+    up_req,
+    down_req,
+    both,
+    no
+}OUTREQ;
+
+typedef enum Dir{
+    up,
+    down,
+    still
+}DIRECTION;
+
+typedef struct Requests{
+    int    Req;
+    OUTREQ outReq;
+}REQUEST;
+
+typedef struct ElevatorInfo{
+    DIRECTION Direction;
+    int       Floor;
+    STATUS    Statu;
+    REQUEST   Request[MAX_FLOOR];
+}ELEINFO_T;
+
+typedef struct Key{
+    char       typeFlag;
+    int        floor;
+    char       updownFlag;
+}KEY_T;
+
+ELEINFO_T ELEINFO;
+KEY_T KEY;
+
+//----------------------------------------
+void initEle(void)
+{
+    int temp;
+    ELEINFO.Direction=still;
+    ELEINFO.Floor=0;
+    ELEINFO.Statu=stop;
+    for(temp=0;temp<MAX_FLOOR;temp++)
+    {
+        ELEINFO.Request[temp].Req=-1;
+        ELEINFO.Request[temp].outReq=no;
+    }
+}
+//---------------------------------------
+void printEle(void)
+{
+    printf("%d : ",ELEINFO.Floor+1);
+    switch(ELEINFO.Statu)
+    {
+    case stop:
+        printf("Stopping!\n");
+        break;
+    case run:
+        printf("Running!\n");
+        break;
+    case open:
+        printf("Door Opened!\n");
+        break;
+    case close:
+        printf("Door Closed!\n");
+        break;
+    }
+}
+//---------------------------------------
+void * getKey(void)
+{
+
+    while(1)
+    {
+        scanf("%d",&KEY.floor);
+        switch(KEY.floor)
+        {
+        case 1:
+        case 2:
+        case 3:
+             ELEINFO.Request[KEY.floor-1].Req=0;;
+             break;
+        case 4:
+        case 5:
+        case 6:
+            (ELEINFO.Request[KEY.floor-4].outReq==down_req)?(ELEINFO.Request[KEY.floor-4].outReq=both):(ELEINFO.Request[KEY.floor-4].outReq=up_req);
+             ELEINFO.Request[KEY.floor-4].Req=1;
+             break;
+        case 7:
+        case 8:
+        case 9:
+             (ELEINFO.Request[KEY.floor-7].outReq==up_req)?(ELEINFO.Request[KEY.floor-7].outReq=both):(ELEINFO.Request[KEY.floor-7].outReq=down_req);
+             ELEINFO.Request[KEY.floor-7].Req=1;
+             break;
+        default:
+             printf("ERROR!\n");
+             break;
+        }
+    }
+//      scanf("%c%d",&KEY.typeFlag,&KEY.floor);
+//      if(KEY.floor>0&&KEY.floor<=MAX_FLOOR)
+//      {
+//       if('o'==KEY.typeFlag)
+//       {
+//          scanf("%c",&KEY.updownFlag);
+//          if('u'==KEY.updownFlag)
+//          {
+//              (ELEINFO.Request[KEY.floor-1].outReq==down_req)?(ELEINFO.Request[KEY.floor-1].outReq=both):(ELEINFO.Request[KEY.floor-1].outReq=up_req);
+//              ELEINFO.Request[KEY.floor-1].Req=1;
+//          }
+//          else if('d'==KEY.updownFlag)
+//          {
+//              (ELEINFO.Request[KEY.floor-1].outReq==up_req)?(ELEINFO.Request[KEY.floor-1].outReq=both):(ELEINFO.Request[KEY.floor-1].outReq=down_req);
+//               ELEINFO.Request[KEY.floor-1].Req=1;
+ //         }
+//          else
+//          {
+//              printf("ORDER ERR\n");
+//          }
+//      }
+//      else if('i'==KEY.typeFlag)
+//      {
+//          ELEINFO.Request[KEY.floor-1].Req=0;
+ //     }
+ //     else
+ //     {
+  //        printf("ORDER ERR\n");
+ //     }
+  //   }
+ //    else
+ //    {
+ //         printf("FLOOR ERROR!\n");
+ //     }
+ //   }
+}
+//---------------------------------------------------------
+void * procEle(void)
+{
+    int floorPtr;
+    while(1)
+    {
+        switch(ELEINFO.Statu)
+        {
+        case stop:
+            if(ELEINFO.Request[ELEINFO.Floor].Req!=-1)
+            {
+                ELEINFO.Request[ELEINFO.Floor].Req=-1;
+                ELEINFO.Request[ELEINFO.Floor].outReq=no;
+                ELEINFO.Statu=open;
+            }
+            else
+            {
+                floorPtr=ELEINFO.Floor;
+                while(floorPtr<MAX_FLOOR)
+                {
+                    if(ELEINFO.Request[floorPtr].Req!=-1)
+                        break;
+                    floorPtr++;
+                }
+                if(floorPtr<MAX_FLOOR)
+                {
+                    ELEINFO.Direction=up;
+                    ELEINFO.Statu=run;
+                }
+                else
+                {
+                    floorPtr=0;
+                    while(floorPtr<ELEINFO.Floor)
+                    {
+                        if(ELEINFO.Request[floorPtr].Req!=-1)
+                            break;
+                        floorPtr++;
+                    }
+                    if(floorPtr<ELEINFO.Floor)
+                    {
+                        ELEINFO.Direction=down;
+                        ELEINFO.Statu=run;
+                    }
+                }
+            }
+            break;
+        case run:
+            if(ELEINFO.Direction==up)
+            {
+                if(ELEINFO.Request[ELEINFO.Floor].Req!=-1&&ELEINFO.Request[ELEINFO.Floor].outReq!=down_req)
+                {
+                    ELEINFO.Statu=open;
+                }
+                else
+                {
+                    floorPtr=ELEINFO.Floor;
+                    while(floorPtr<MAX_FLOOR)
+                    {
+                        if(ELEINFO.Request[floorPtr].Req!=-1)
+                            break;
+                        floorPtr++;
+                    }
+                    if(floorPtr<MAX_FLOOR)
+                    {
+                        ELEINFO.Floor++;
+                    }
+                    else if(ELEINFO.Request[ELEINFO.Floor].Req!=-1&&ELEINFO.Request[ELEINFO.Floor].outReq==down_req)
+                    {
+                        ELEINFO.Statu=open;
+                    }
+                    else
+                    {
+                        floorPtr=0;
+                        while(floorPtr<ELEINFO.Floor)
+                        {
+                            if(ELEINFO.Request[floorPtr].Req!=-1)
+                                break;
+                            floorPtr++;
+                        }
+                        if(floorPtr<ELEINFO.Floor)
+                        {
+                            ELEINFO.Direction=down;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if(ELEINFO.Request[ELEINFO.Floor].Req!=-1&&ELEINFO.Request[ELEINFO.Floor].outReq!=up_req)
+                {
+                    ELEINFO.Statu=open;
+                }
+                else
+                {
+                    floorPtr=0;
+                    while(floorPtr<ELEINFO.Floor)
+                    {
+                        if(ELEINFO.Request[floorPtr].Req!=-1)
+                            break;
+                        floorPtr++;
+                    }
+                    if(floorPtr<ELEINFO.Floor)
+                    {
+                        ELEINFO.Floor--;
+                    }
+                    else if(ELEINFO.Request[ELEINFO.Floor].Req!=-1&&ELEINFO.Request[ELEINFO.Floor].outReq==up_req)
+                    {
+                        ELEINFO.Statu=open;
+                    }
+                    else
+                    {
+                        floorPtr=ELEINFO.Floor;
+                        while(floorPtr<MAX_FLOOR)
+                        {
+                            if(ELEINFO.Request[floorPtr].Req!=-1)
+                                break;
+                            floorPtr++;
+                        }
+                        if(floorPtr<ELEINFO.Floor)
+                        {
+                            ELEINFO.Direction=up;
+                        }
+                    }
+                }
+            }
+            break;
+        case open:
+            ELEINFO.Statu=close;
+            if(ELEINFO.Direction==up)
+            {
+                if(ELEINFO.Request[ELEINFO.Floor].Req==1&&ELEINFO.Request[ELEINFO.Floor].outReq==both)
+                {
+                    ELEINFO.Request[ELEINFO.Floor].outReq=down_req;
+                }
+                else if(ELEINFO.Request[ELEINFO.Floor].Req!=-1)
+                {
+                    ELEINFO.Request[ELEINFO.Floor].outReq=no;
+                    ELEINFO.Request[ELEINFO.Floor].Req=-1;
+                }
+            }
+            else if(ELEINFO.Direction==down)
+            {
+                if(ELEINFO.Request[ELEINFO.Floor].Req==1&&ELEINFO.Request[ELEINFO.Floor].outReq==both)
+                {
+                    ELEINFO.Request[ELEINFO.Floor].outReq=up_req;
+                }
+                else if(ELEINFO.Request[ELEINFO.Floor].Req!=-1)
+                {
+                    ELEINFO.Request[ELEINFO.Floor].outReq=no;
+                    ELEINFO.Request[ELEINFO.Floor].Req=-1;
+                }
+            }
+            else
+            {
+                ELEINFO.Request[ELEINFO.Floor].outReq=no;
+                ELEINFO.Request[ELEINFO.Floor].Req=-1;
+            }
+            break;
+        case close:
+            if(ELEINFO.Direction==up)
+            {
+                floorPtr=ELEINFO.Floor;
+                while(floorPtr<MAX_FLOOR)
+                {
+                    if(ELEINFO.Request[floorPtr].Req!=-1&&ELEINFO.Request[floorPtr].outReq!=down_req)
+                      break;
+                    floorPtr++;
+                }
+                if(floorPtr<MAX_FLOOR)
+                {
+                        ELEINFO.Statu=run;
+                }
+                else
+                {
+                    floorPtr=0;
+                    while(floorPtr<ELEINFO.Floor)
+                    {
+                        if(ELEINFO.Request[floorPtr].Req!=-1&&ELEINFO.Request[floorPtr].outReq!=up_req)
+                            break;
+                        floorPtr++;
+                    }
+                    if(floorPtr<ELEINFO.Floor)
+                    {
+                        ELEINFO.Statu=run;
+                        ELEINFO.Direction=down;
+                    }
+                    else
+                    {
+                        ELEINFO.Statu=stop;
+                        ELEINFO.Direction=still;
+                    }
+                }
+            }
+            else
+            {
+                floorPtr=0;
+                while(floorPtr<ELEINFO.Floor)
+                {
+                    if(ELEINFO.Request[floorPtr].Req!=-1&&ELEINFO.Request[floorPtr].outReq!=up_req)
+                        break;
+                    floorPtr++;
+                }
+                if(floorPtr<ELEINFO.Floor)
+                {
+                    ELEINFO.Statu=run;
+                }
+                else
+                {
+                    floorPtr=ELEINFO.Floor;
+                    while(floorPtr<MAX_FLOOR)
+                    {
+                        if(ELEINFO.Request[floorPtr].Req!=-1&&ELEINFO.Request[floorPtr].outReq!=down_req)
+                            break;
+                        floorPtr++;
+                    }
+                    if(floorPtr<MAX_FLOOR)
+                    {
+                        ELEINFO.Statu=run;
+                        ELEINFO.Direction=up;
+                    }
+                    else
+                    {
+                        ELEINFO.Statu=stop;
+                        ELEINFO.Direction=still;
+                    }
+                }
+            }
+            break;
+        }
+
+        printEle();
+        sleep(1);
+
+    }
+}
+//-------------------------------------------------
+int main (int argc, char const* argv[])
+{
+   pthread_t getkey_t,proc_t;
+   initEle();
+   pthread_create(&getkey_t,NULL,(void *)&getKey,NULL);
+   pthread_create(&proc_t,NULL,(void *)&procEle,NULL);
+   pthread_exit(NULL);
+   return 0;
+}

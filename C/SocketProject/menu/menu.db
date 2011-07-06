@@ -1,0 +1,57 @@
+<!DOCTYPE DB><DB version="1.0">
+<connection>
+    <property name="name">
+        <string>myconn</string>
+    </property>
+    <property name="driver">
+        <string>QMYSQL3</string>
+    </property>
+    <property name="database">
+        <string>menu</string>
+    </property>
+    <property name="username">
+        <string>root</string>
+    </property>
+    <property name="hostname">
+        <string>localhost</string>
+    </property>
+    <property name="port">
+        <string>3306</string>
+    </property>
+    <table>
+        <property name="name">
+            <string>mymenu</string>
+        </property>
+        <field>
+            <property name="name">
+                <string>id</string>
+            </property>
+        </field>
+        <field>
+            <property name="name">
+                <string>name</string>
+            </property>
+        </field>
+        <field>
+            <property name="name">
+                <string>source</string>
+            </property>
+        </field>
+        <field>
+            <property name="name">
+                <string>intergrent</string>
+            </property>
+        </field>
+        <field>
+            <property name="name">
+                <string>price</string>
+            </property>
+        </field>
+        <field>
+            <property name="name">
+                <string>photo</string>
+            </property>
+        </field>
+    </table>
+</connection>
+</DB>
