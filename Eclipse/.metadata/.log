@@ -4303,3 +4303,30 @@ org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
 	at com.android.ide.eclipse.adt.ToolsLocator.getTraceViewLocation(ToolsLocator.java:36)
 	at com.android.ide.eclipse.ddms.DdmsPlugin$4.run(DdmsPlugin.java:273)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-07-14 21:35:50.997
+!MESSAGE Failed to load properties file for project 'And_Activity01'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-07-14 21:38:10.249
+!MESSAGE No command output when running: 'am start -n sigma.activity01/sigma.activity01.And_Activity01Activity -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device emulator-5554
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:276)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(ActivityLaunchAction.java:74)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(AndroidLaunchController.java:1147)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.clientChanged(AndroidLaunchController.java:1493)
+	at com.android.ddmlib.AndroidDebugBridge.clientChanged(AndroidDebugBridge.java:870)
+	at com.android.ddmlib.Device.update(Device.java:398)
+	at com.android.ddmlib.Client.update(Client.java:835)
+	at com.android.ddmlib.HandleAppName.handleAPNM(HandleAppName.java:90)
+	at com.android.ddmlib.HandleAppName.handleChunk(HandleAppName.java:64)
+	at com.android.ddmlib.MonitorThread.callHandler(MonitorThread.java:414)
+	at com.android.ddmlib.MonitorThread.processClientActivity(MonitorThread.java:322)
+	at com.android.ddmlib.MonitorThread.run(MonitorThread.java:263)
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2011-07-14 21:39:22.352
+!MESSAGE AndroidManifest: Ignoring unknown 'Bu' XML element
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2011-07-14 21:39:22.615
+!MESSAGE AndroidManifest: Ignoring unknown 'Butt' XML element

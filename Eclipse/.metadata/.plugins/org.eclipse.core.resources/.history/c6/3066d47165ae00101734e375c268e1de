@@ -1,0 +1,18 @@
+package sigma.activity01;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class And_Activity01Activity extends Activity {
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        TextView helloTextView = (TextView)findViewById(R.id.helloTextView);
+        Button helloButton = (Button)findViewById(R.id.helloButton);
+        
+    }
+}

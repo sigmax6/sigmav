@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="71" version="2.0">
+<workbench progressCount="30" version="2.0">
 <workbenchAdvisor/>
 <window height="774" maximized="true" width="1282" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -21,15 +21,16 @@
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="86" y="28"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="108" y="28"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="40" y="28"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="316" y="28"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="40" y="28"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="40" y="28"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="246" y="28"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="156" y="28"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="192" y="28"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.android.ide.eclipse.editors.layout.LayoutEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -38,10 +39,38 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="And_HelloworldActivity.java" partName="And_HelloworldActivity.java" path="/home/sigmax6/SigmaLib/Eclipse/And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java" title="And_HelloworldActivity.java" tooltip="And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="348" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="And_Activity01Activity.java" partName="And_Activity01Activity.java" path="/home/sigmax6/SigmaLib/Eclipse/And_Activity01/src/sigma/activity01/And_Activity01Activity.java" title="And_Activity01Activity.java" tooltip="And_Activity01/src/sigma/activity01/And_Activity01Activity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Activity01/src/sigma/activity01/And_Activity01Activity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="650" selectionTopPixel="0"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" partName="And_Activity01 Manifest" path="/home/sigmax6/SigmaLib/Eclipse/And_Activity01/AndroidManifest.xml" title="And_Activity01 Manifest" tooltip="And_Activity01/AndroidManifest.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Activity01/AndroidManifest.xml"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" partName="main.xml" path="/home/sigmax6/SigmaLib/Eclipse/And_Activity01/res/layout/main.xml" title="main.xml" tooltip="And_Activity01/res/layout/main.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Activity01/res/layout/main.xml"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" partName="strings.xml" path="/home/sigmax6/SigmaLib/Eclipse/And_Activity01/res/values/strings.xml" title="strings.xml" tooltip="And_Activity01/res/values/strings.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Activity01/res/values/strings.xml"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" partName="R.java" path="/home/sigmax6/SigmaLib/Eclipse/And_Activity01/gen/sigma/activity01/R.java" title="R.java" tooltip="And_Activity01/gen/sigma/activity01/R.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Activity01/gen/sigma/activity01/R.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
@@ -69,6 +98,9 @@
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (2 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="405" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -134,7 +166,7 @@
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 <view id="org.eclipse.wst.server.ui.ServersView" partName="Servers"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -491,7 +523,65 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/And_Activity01/src/sigma/activity01/And_Activity01Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/And_Activity01/AndroidManifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/And_Activity01/res/layout/main.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" path="/And_Activity01/res/values/strings.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/And_Activity01/gen/sigma/activity01/R.java"/>
+</editors>
+<item historyLabel="And_HelloworldActivity.java" index="0">
+<position info="not_deleted" x="348" y="0"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="386" y="0"/>
+</item>
+<item historyLabel="And_Activity01 Manifest" index="2"/>
+<item historyLabel="main.xml" index="3"/>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="And_Activity01 Manifest" index="2"/>
+<item historyLabel="strings.xml" index="4"/>
+<item historyLabel="main.xml" index="3"/>
+<item historyLabel="R.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="445" y="0"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="413" y="8"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="518" y="0"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="653" y="0"/>
+</item>
+<item historyLabel="main.xml" index="3"/>
+<item historyLabel="R.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="And_Activity01 Manifest" index="2"/>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="653" y="0"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="512" y="6"/>
+</item>
+<item historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="597" y="0"/>
+</item>
+<item active="true" historyLabel="And_Activity01Activity.java" index="1">
+<position info="not_deleted" x="651" y="0"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -510,14 +600,29 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" tooltip="And_Activity01/gen/sigma/activity01/R.java">
+<persistable path="/And_Activity01/gen/sigma/activity01/R.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="And_Activity01/res/values/strings.xml">
+<persistable path="/And_Activity01/res/values/strings.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="And_Activity01/res/layout/main.xml">
+<persistable path="/And_Activity01/res/layout/main.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="And_Activity01/AndroidManifest.xml">
+<persistable path="/And_Activity01/AndroidManifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="And_Activity01Activity.java" tooltip="And_Activity01/src/sigma/activity01/And_Activity01Activity.java">
+<persistable path="/And_Activity01/src/sigma/activity01/And_Activity01Activity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="And_HelloworldActivity.java" tooltip="And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java">
+<persistable path="/And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="And_Helloworld/res/values/strings.xml">
 <persistable path="/And_Helloworld/res/values/strings.xml"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" tooltip="And_Helloworld/gen/sigma/helloworld/R.java">
 <persistable path="/And_Helloworld/gen/sigma/helloworld/R.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="And_HelloworldActivity.java" tooltip="And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java">
-<persistable path="/And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="eclipse" tooltip="/opt/eclipse/eclipse">
 <persistable uri="file:/opt/eclipse/eclipse"/>
