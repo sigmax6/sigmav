@@ -2,6 +2,25 @@
 **** Build of configuration Debug for project C_Hello ****
 
 make all 
+Building target: C_Hello
+Invoking: GCC C Linker
+gcc  -o "C_Hello"  ./src/C_Hello.o   
+Finished building target: C_Hello
+ 
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project C_Hello ****
+
+make clean 
+rm -rf  ./src/C_Hello.o  ./src/C_Hello.d  C_Hello
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project C_Hello ****
+
+make all 
 Building file: ../src/C_Hello.c
 Invoking: GCC C Compiler
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C_Hello.d" -MT"src/C_Hello.d" -o "src/C_Hello.o" "../src/C_Hello.c"
@@ -12,12 +31,5 @@ Invoking: GCC C Linker
 gcc  -o "C_Hello"  ./src/C_Hello.o   
 Finished building target: C_Hello
  
-
-**** Build Finished ****
-
-**** Build of configuration Debug for project C_Hello ****
-
-make all 
-make: Nothing to be done for `all'.
 
 **** Build Finished ****

@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+/home/sigmax6/SigmaLib/Eclipse/.metadata/.plugins/org.eclipse.jdt.core
+1243422251.index
