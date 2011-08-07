@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="30" version="2.0">
+<workbench progressCount="45" version="2.0">
 <workbenchAdvisor/>
 <window height="774" maximized="true" width="1282" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -11,6 +11,7 @@
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="174" y="28"/>
 <coolItem id="com.google.gdt.eclipse.suite.GDTPulldownToolbar" itemType="typeToolBarContribution" x="138" y="28"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="net.sourceforge.vrapper.toolbar" itemType="typeToolBarContribution" x="40" y="28"/>
 <coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="40" y="28"/>
 <coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="100" y="28"/>
 <coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="162" y="28"/>
@@ -21,11 +22,11 @@
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="86" y="28"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="108" y="28"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="316" y="28"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="276" y="28"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="40" y="28"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="40" y="28"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="156" y="28"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="192" y="28"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -56,7 +57,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="And_Activity01Activity.java" partName="And_Activity01Activity.java" path="/home/sigmax6/SigmaLib/Eclipse/And_Activity01/src/sigma/activity01/And_Activity01Activity.java" title="And_Activity01Activity.java" tooltip="And_Activity01/src/sigma/activity01/And_Activity01Activity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Activity01/src/sigma/activity01/And_Activity01Activity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="650" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="24" selectionTopPixel="0"/>
 </editor>
 <editor id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" partName="And_Activity01 Manifest" path="/home/sigmax6/SigmaLib/Eclipse/And_Activity01/AndroidManifest.xml" title="And_Activity01 Manifest" tooltip="And_Activity01/AndroidManifest.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/And_Activity01/AndroidManifest.xml"/>
@@ -98,9 +99,6 @@
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (2 items)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="405" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -531,6 +529,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/And_Activity01/res/layout/main.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" path="/And_Activity01/res/values/strings.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/And_Activity01/gen/sigma/activity01/R.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/And_Helloworld/src/sigma/helloworld/And_HelloworldActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/And_Activity01/gen/sigma/activity01/R.java"/>
 </editors>
 <item historyLabel="And_HelloworldActivity.java" index="0">
 <position info="not_deleted" x="348" y="0"/>
@@ -578,8 +578,14 @@
 <item historyLabel="And_Activity01Activity.java" index="1">
 <position info="not_deleted" x="597" y="0"/>
 </item>
-<item active="true" historyLabel="And_Activity01Activity.java" index="1">
+<item historyLabel="And_Activity01Activity.java" index="1">
 <position info="not_deleted" x="651" y="0"/>
+</item>
+<item historyLabel="And_HelloworldActivity.java" index="6">
+<position info="not_deleted" x="348" y="0"/>
+</item>
+<item active="true" historyLabel="R.java" index="7">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
