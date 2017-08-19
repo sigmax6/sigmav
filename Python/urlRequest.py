@@ -6,9 +6,9 @@
 #
 ################################
 
-import urllib
+import urllib.request
 
-page = urllib.urlopen("http://news.google.com")
+page = urllib.request.urlopen("http://www.baidu.com")
 text = page.read().decode("utf8")
 
 print(text)
